@@ -1,6 +1,16 @@
+import 'swiper/css';
+import 'swiper/css/navigation';
+import '../index.css';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+
 import Box from '@mui/material/Box';
-import Slider from 'react-slick';
+import { Navigation } from 'swiper';
 import Typography from '@mui/material/Typography';
+
+// Import Swiper styles
+
+// import required modules
 
 const serviceData = [
   {
@@ -83,6 +93,23 @@ function Services() {
         <Typography variant="body1" align="center" sx={{ fontSize: '40px' }}>
           Services
         </Typography>
+        <Box>
+          <>
+            <Swiper
+              direction={'vertical'}
+              slidesPerView={3}
+              spaceBetween={30}
+              navigation={true}
+              modules={[Navigation]}
+              className="mySwiper">
+              {serviceData.map((item) => (
+                <SwiperSlide key={item.title}>
+                  <img src={item.url} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </>
+        </Box>
       </Box>
     </div>
   );
