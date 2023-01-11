@@ -1,9 +1,103 @@
-import React from 'react'
+import {
+  AppBar,
+  Breadcrumbs,
+  Button,
+  IconButton,
+  Link,
+  Menu,
+  MenuItem,
+  Tab,
+  Tabs,
+  Toolbar,
+  Typography,
+  useMediaQuery,
+  useTheme
+} from '@mui/material';
+import React, { useState } from 'react';
 
+import BurgerMenu from './BurgerMenu';
+import LanguageIcon from '@mui/icons-material/Language';
+
+const pages = [
+  'Home',
+  'About Us',
+  'Services',
+  'Courses',
+  'Team',
+  'News & Events',
+  'Gallary',
+  'Contact'
+];
 function Header() {
+  const [value, setValue] = useState();
+  const theme = useTheme();
+  const isMatch = useMediaQuery(theme.breakpoints.down('md'));
+  const [langOpen, setLangOpen] = useState<null | HTMLElement>(null);
+  const open = Boolean(langOpen);
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setLangOpen(event.currentTarget);
+  };
+  const handleClose = () => {
+    setLangOpen(null);
+  };
+
   return (
-    <div>Header</div>
-  )
+    <React.Fragment>
+      <AppBar sx={{ background: 'white' }}>
+        <Toolbar>
+          <img
+            src="https://eden.am/_next/static/media/logo.1388381d.svg"
+            alt="eden-logo"
+            style={{ width: '70px', height: '75px' }}
+          />
+          {isMatch ? (
+            <>
+              <BurgerMenu />
+            </>
+          ) : (
+            <>
+              <Tabs
+                sx={{ marginLeft: 'auto' }}
+                indicatorColor="secondary"
+                value={value}
+                onChange={(e, value) => setValue(value)}>
+                {pages.map((item) => (
+                  <Tab
+                    key={item}
+                    label={item}
+                    sx={{
+                      fontSize: { md: '12px', lg: '14px' },
+                      padding: { md: '8px 10px', lg: '12px 16px' }
+                    }}
+                  />
+                ))}
+              </Tabs>
+              <IconButton sx={{ marginLeft: 'auto' }} onClick={handleClick}>
+                <LanguageIcon />
+              </IconButton>
+              <Menu
+                id="demo-positioned-menu"
+                aria-labelledby="demo-positioned-button"
+                anchorEl={langOpen}
+                open={open}
+                onClose={handleClose}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'left'
+                }}
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'left'
+                }}>
+                <MenuItem onClick={handleClose}>Eng</MenuItem>
+                <MenuItem onClick={handleClose}>Arm</MenuItem>
+              </Menu>
+            </>
+          )}
+        </Toolbar>
+      </AppBar>
+    </React.Fragment>
+  );
 }
 
-export default Header
+export default Header;
