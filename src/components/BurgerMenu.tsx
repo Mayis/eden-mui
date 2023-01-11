@@ -25,8 +25,12 @@ function BurgerMenu() {
 
   return (
     <>
-      <Drawer anchor="left" open={openDrawer} onClose={() => setOpenDrawer(false)}>
-        <List>
+      <Drawer
+        anchor="left"
+        open={openDrawer}
+        onClose={() => setOpenDrawer(false)}
+        sx={{ width: '300px' }}>
+        <List sx={{ width: '300px' }}>
           {pages.map((page, index) => (
             <ListItemButton key={index}>
               <ListItemIcon>

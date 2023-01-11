@@ -1,15 +1,11 @@
 import {
   AppBar,
-  Breadcrumbs,
-  Button,
   IconButton,
-  Link,
   Menu,
   MenuItem,
   Tab,
   Tabs,
   Toolbar,
-  Typography,
   useMediaQuery,
   useTheme
 } from '@mui/material';
@@ -42,7 +38,7 @@ function Header() {
   };
 
   return (
-    <React.Fragment>
+    <>
       <AppBar sx={{ background: 'white' }}>
         <Toolbar>
           <img
@@ -72,31 +68,31 @@ function Header() {
                   />
                 ))}
               </Tabs>
-              <IconButton sx={{ marginLeft: 'auto' }} onClick={handleClick}>
-                <LanguageIcon />
-              </IconButton>
-              <Menu
-                id="demo-positioned-menu"
-                aria-labelledby="demo-positioned-button"
-                anchorEl={langOpen}
-                open={open}
-                onClose={handleClose}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left'
-                }}
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left'
-                }}>
-                <MenuItem onClick={handleClose}>Eng</MenuItem>
-                <MenuItem onClick={handleClose}>Arm</MenuItem>
-              </Menu>
             </>
           )}
+          <IconButton sx={{ marginLeft: { md: '15px', lg: 'auto' } }} onClick={handleClick}>
+            <LanguageIcon />
+          </IconButton>
+          <Menu
+            id="demo-positioned-menu"
+            aria-labelledby="demo-positioned-button"
+            anchorEl={langOpen}
+            open={open}
+            onClose={handleClose}
+            anchorOrigin={{
+              vertical: 'top',
+              horizontal: 'left'
+            }}
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'left'
+            }}>
+            <MenuItem onClick={handleClose}>Eng</MenuItem>
+            <MenuItem onClick={handleClose}>Arm</MenuItem>
+          </Menu>
         </Toolbar>
       </AppBar>
-    </React.Fragment>
+    </>
   );
 }
 
