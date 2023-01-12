@@ -1,5 +1,6 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
+import Subtitle from '../common/Subtitle';
 import Typography from '@mui/material/Typography';
 
 const aboutUs = [
@@ -11,9 +12,7 @@ const aboutUs = [
 function About() {
   return (
     <Container sx={{ marginTop: { xs: '20px', md: '45px' }, marginBottom: '80px' }}>
-      <Typography variant="body1" align="center" sx={{ fontSize: '40px' }}>
-        About
-      </Typography>
+      <Subtitle title="About" color="black" />
       <Typography
         variant="body1"
         align="center"

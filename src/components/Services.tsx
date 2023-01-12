@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { Navigation } from 'swiper';
+import Subtitle from '../common/Subtitle';
 import Typography from '@mui/material/Typography';
 
 const serviceData = [
@@ -87,9 +88,7 @@ function Services() {
   return (
     <div id="services">
       <Box sx={{ paddingTop: '20px' }}>
-        <Typography variant="body1" align="center" sx={{ fontSize: '40px', padding: '15px 0px' }}>
-          Services
-        </Typography>
+        <Subtitle title="Services" color="black" />
         <Box
           sx={{
             display: 'flex',
@@ -109,6 +108,8 @@ function Services() {
             <Swiper
               direction={'vertical'}
               slidesPerView={4}
+              loop={true}
+              loopFillGroupWithBlank={true}
               spaceBetween={25}
               navigation={{
                 nextEl: '.next',

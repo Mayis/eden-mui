@@ -7,6 +7,7 @@ import { useMediaQuery, useTheme } from '@mui/material';
 import { Box } from '@mui/material';
 import Button from '@mui/material/Button';
 import { Navigation } from 'swiper';
+import Subtitle from '../common/Subtitle';
 import Typography from '@mui/material/Typography';
 
 const coursesData = [
@@ -41,14 +42,14 @@ function Courses() {
         padding: { sm: '30px 60px', md: '50px 100px' }
       }}>
       <Box>
-        <Typography variant="body1" sx={{ fontSize: { xs: '30px', sm: '40px' }, color: 'white' }}>
-          Courses
-        </Typography>
+        <Subtitle title="Courses" />
       </Box>
       <Box sx={{ width: '100%', height: '500px', paddingTop: { xs: '40px', md: '80px' } }}>
         <Swiper
           slidesPerView={isMatch ? 1 : 2}
           spaceBetween={30}
+          loopFillGroupWithBlank={true}
+          loop={true}
           navigation={true}
           modules={[Navigation]}
           className="mySwiper">
