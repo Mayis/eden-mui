@@ -1,4 +1,5 @@
 import Box from '@mui/material/Box';
+import Courses from './Courses';
 import React from 'react';
 import Services from './Services';
 
@@ -10,6 +11,7 @@ function Other() {
         backgroundAttachment: 'fixed'
       }}>
       <Services />
+      <Courses />
     </Box>
   );
 }

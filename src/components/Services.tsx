@@ -1,16 +1,13 @@
 import 'swiper/css';
-import 'swiper/css/navigation';
-import '../index.css';
 
+import { Button, IconButton } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import Box from '@mui/material/Box';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { Navigation } from 'swiper';
 import Typography from '@mui/material/Typography';
-
-// Import Swiper styles
-
-// import required modules
 
 const serviceData = [
   {
@@ -90,25 +87,65 @@ function Services() {
   return (
     <div id="services">
       <Box sx={{ paddingTop: '20px' }}>
-        <Typography variant="body1" align="center" sx={{ fontSize: '40px' }}>
+        <Typography variant="body1" align="center" sx={{ fontSize: '40px', padding: '15px 0px' }}>
           Services
         </Typography>
-        <Box>
-          <>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'column',
+            margin: '40px 0px'
+          }}>
+          <IconButton className="prev" sx={{ padding: '15px', width: '40px', height: '40px' }}>
+            <KeyboardArrowUpIcon />
+          </IconButton>
+          <Box
+            sx={{
+              width: { xs: '300px', sm: '450px', md: '650px' },
+              height: { xs: '500px', sm: '600px' }
+            }}>
             <Swiper
               direction={'vertical'}
-              slidesPerView={3}
-              spaceBetween={30}
-              navigation={true}
+              slidesPerView={4}
+              spaceBetween={25}
+              navigation={{
+                nextEl: '.next',
+                prevEl: '.prev'
+              }}
+              //   navigation={true}
               modules={[Navigation]}
               className="mySwiper">
               {serviceData.map((item) => (
                 <SwiperSlide key={item.title}>
                   <img src={item.url} />
+                  <div className="titleDiv">
+                    <Typography
+                      variant="body1"
+                      align="center"
+                      sx={{ fontSize: { xs: '24px', md: '28px' }, color: 'white' }}>
+                      {item.title}
+                    </Typography>
+                  </div>
                 </SwiperSlide>
               ))}
             </Swiper>
-          </>
+          </Box>
+          <IconButton className="next" sx={{ padding: '15px' }}>
+            <KeyboardArrowDownIcon />
+          </IconButton>
+          <Button
+            sx={{
+              backgroundImage:
+                "url('https://eden.am/_next/static/media/servicesButton.2ce577ea.png')",
+              padding: { xs: '12px 25px', sm: '14px 45px', md: '14px 62px' },
+              marginTop: '40px',
+              fontSize: '28px',
+              color: 'white'
+            }}>
+            Combo Packages
+          </Button>
         </Box>
       </Box>
     </div>
