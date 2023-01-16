@@ -1,5 +1,6 @@
 import Box from '@mui/material/Box';
 import Courses from './Courses';
+import Events from './Events';
 import React from 'react';
 import Services from './Services';
 import Team from './Team';
@@ -14,6 +15,7 @@ function Other() {
       <Services />
       <Courses />
       <Team />
+      <Events />
     </Box>
   );
 }
