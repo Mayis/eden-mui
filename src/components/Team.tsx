@@ -5,7 +5,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { useMediaQuery, useTheme } from '@mui/material';
 
 import { Box } from '@mui/material';
-import Button from '@mui/material/Button';
 import { Navigation } from 'swiper';
 import Subtitle from '../common/Subtitle';
 import Typography from '@mui/material/Typography';

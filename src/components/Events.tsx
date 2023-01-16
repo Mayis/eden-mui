@@ -1,7 +1,8 @@
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Button, Container } from '@mui/material';
 
 import EventsItem from '../common/EventsItem';
 import React from 'react';
+import SeeMoreBtn from '../common/SeeMoreBtn';
 import Subtitle from '../common/Subtitle';
 
 const eventsData = [
@@ -33,6 +34,7 @@ function Events() {
           <EventsItem item={item} key={item.url} />
         ))}
       </Container>
+      <SeeMoreBtn />
     </div>
   );
 }
