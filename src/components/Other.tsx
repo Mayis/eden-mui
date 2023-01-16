@@ -2,6 +2,7 @@ import Box from '@mui/material/Box';
 import Contact from './Contact';
 import Courses from './Courses';
 import Events from './Events';
+import Footer from './Footer';
 import Gallary from './Gallary';
 import React from 'react';
 import Services from './Services';
@@ -20,6 +21,7 @@ function Other() {
       <Events />
       <Gallary />
       <Contact />
+      <Footer />
     </Box>
   );
 }
