@@ -29,7 +29,7 @@ function Gallary() {
           display: 'flex',
           alignItems: 'center',
           flexDirection: 'column',
-          marginTop: '50px'
+          marginTop: { xs: '20px', md: '50px' }
         }}>
         <Tabs indicatorColor="secondary" value={value} onChange={(e, value) => setValue(value)}>
           {pages.map((item) => (
@@ -44,7 +44,7 @@ function Gallary() {
             />
           ))}
         </Tabs>
-        <Box sx={{ flexGrow: 1, marginTop: '50px' }}>
+        <Box sx={{ flexGrow: 1, marginTop: { xs: '25px', md: '50px' } }}>
           <Grid container spacing={{ xs: 3, md: 5 }} columns={{ xs: 4, sm: 8, md: 12 }}>
             {imageData.map((img) => (
               <Grid item xs={4} sm={4} key={img.url}>

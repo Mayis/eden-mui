@@ -26,7 +26,7 @@ const eventsData = [
 function Events() {
   return (
     <div id="newsAndEvents">
-      <Box sx={{ paddingTop: '20px' }}>
+      <Box sx={{ marginTop: '50px' }}>
         <Subtitle title="News & Events" color="black" />
       </Box>
       <Container sx={{ marginTop: '50px' }}>

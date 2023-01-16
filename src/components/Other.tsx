@@ -1,4 +1,5 @@
 import Box from '@mui/material/Box';
+import Contact from './Contact';
 import Courses from './Courses';
 import Events from './Events';
 import Gallary from './Gallary';
@@ -18,6 +19,7 @@ function Other() {
       <Team />
       <Events />
       <Gallary />
+      <Contact />
     </Box>
   );
 }
