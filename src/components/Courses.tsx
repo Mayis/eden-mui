@@ -10,7 +10,7 @@ import CoursesItem from "./common/CoursesItem";
 import Subtitle from "./common/Subtitle";
 
 // data
-import { courses } from "src/data";
+import { courses } from "../data";
 
 function Courses() {
   const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));

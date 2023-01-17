@@ -9,7 +9,7 @@ import { Theme, useMediaQuery, Box } from "@mui/material";
 import Subtitle from "./common/Subtitle";
 import TeamItem from "./common/TeamItem";
 // data
-import { team } from "src/data";
+import { team } from "../data";
 
 function Team() {
   const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));

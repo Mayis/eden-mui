@@ -3,7 +3,7 @@ import { Box, Typography } from "@mui/material";
 import Subtitle from "./common/Subtitle";
 
 // data
-import { contact } from "src/data";
+import { contact } from "../data";
 
 function Contact() {
   return (

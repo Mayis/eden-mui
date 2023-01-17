@@ -9,7 +9,7 @@ import Services from "./Services";
 import Team from "./Team";
 
 // data
-import { home } from "src/data";
+import { home } from "../data";
 
 function Other() {
   return (

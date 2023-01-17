@@ -2,7 +2,7 @@
 import Box from "@mui/material/Box";
 
 // data
-import { home } from "src/data";
+import { home } from "../data";
 function Home() {
   return (
     // in mobile(ios)  fixed background not working

@@ -6,7 +6,7 @@ import SeeMoreBtn from "./common/SeeMoreBtn";
 import Subtitle from "./common/Subtitle";
 
 // data
-import { gallery } from "src/data";
+import { gallery } from "../data";
 
 function Gallary() {
   const [activeTab, setActiveTab] = useState("Photos");

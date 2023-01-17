@@ -5,7 +5,7 @@ import Subtitle from "./common/Subtitle";
 import Typography from "@mui/material/Typography";
 
 // data
-import { about } from "src/data";
+import { about } from "../data";
 
 function About() {
   return (

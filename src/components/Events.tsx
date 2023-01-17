@@ -7,7 +7,7 @@ import SeeMoreBtn from "./common/SeeMoreBtn";
 import Subtitle from "./common/Subtitle";
 
 // data
-import { events } from "src/data";
+import { events } from "../data";
 
 function Events() {
   return (

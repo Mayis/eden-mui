@@ -11,7 +11,7 @@ import Typography from "@mui/material/Typography";
 // icons
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import { services } from "src/data";
+import { services } from "../data";
 
 function Services() {
   return (
