@@ -1,8 +1,9 @@
+// components
 import { Box, Container, Typography } from "@mui/material";
 
+// icons
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import React from "react";
 
 function Footer() {
   return (

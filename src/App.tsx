@@ -1,4 +1,4 @@
-import React from "react";
+// components
 import About from "./components/About";
 import Header from "./components/Header";
 import Home from "./components/Home";

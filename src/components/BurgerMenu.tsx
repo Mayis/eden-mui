@@ -1,3 +1,6 @@
+import React, { useState } from "react";
+
+// components
 import {
   Drawer,
   IconButton,
@@ -6,21 +9,15 @@ import {
   ListItemIcon,
   ListItemText
 } from "@mui/material";
-import React, { useState } from "react";
 
+// icons
 import MenuIcon from "@mui/icons-material/Menu";
 
-const pages = [
-  "Home",
-  "About Us",
-  "Services",
-  "Courses",
-  "Team",
-  "News & Events",
-  "Gallary",
-  "Contact"
-];
-function BurgerMenu() {
+type Props = {
+  nav: string[];
+};
+
+function BurgerMenu({ nav }: Props) {
   const [openDrawer, setOpenDrawer] = useState(false);
 
   return (
@@ -31,10 +28,10 @@ function BurgerMenu() {
         onClose={() => setOpenDrawer(false)}
         sx={{ width: "300px" }}>
         <List sx={{ width: "300px" }}>
-          {pages.map((page, index) => (
-            <ListItemButton key={index}>
+          {nav.map((item) => (
+            <ListItemButton key={`mobile${item}`}>
               <ListItemIcon>
-                <ListItemText>{page}</ListItemText>
+                <ListItemText>{item}</ListItemText>
               </ListItemIcon>
             </ListItemButton>
           ))}

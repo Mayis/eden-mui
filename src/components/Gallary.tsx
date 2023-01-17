@@ -1,26 +1,15 @@
 import { useState } from "react";
-import { Box, Container, Grid, Tab, Tabs, Typography } from "@mui/material";
-import SeeMoreBtn from "../common/SeeMoreBtn";
-import Subtitle from "../common/Subtitle";
 
-const tabs = ["Photo Gallery", "Video Gallery"];
-const imageData = [
-  {
-    url: "https://eden.am/_next/image?url=https%3A%2F%2Fedenbysm.com%2Fa8%2F1672499732917--19.webp&w=640&q=75",
-    title: "Eden Interier"
-  },
-  {
-    url: "https://eden.am/_next/image?url=https%3A%2F%2Fedenbysm.com%2Fa8%2F1672499753045--eden-10.webp&w=640&q=75",
-    title: "Gift Card"
-  },
-  {
-    url: "https://eden.am/_next/image?url=https%3A%2F%2Fedenbysm.com%2Fa8%2F1672499806776--eden-5.webp&w=640&q=75",
-    title: "Sharing LOVE"
-  }
-];
+// components
+import { Box, Container, Grid, Tab, Tabs, Typography } from "@mui/material";
+import SeeMoreBtn from "./common/SeeMoreBtn";
+import Subtitle from "./common/Subtitle";
+
+// data
+import { gallery } from "src/data";
 
 function Gallary() {
-  const [value, setValue] = useState("0");
+  const [activeTab, setActiveTab] = useState("Photos");
   return (
     <Box sx={{ marginTop: "50px" }}>
       <Subtitle title="Gallary" color="black" />
@@ -31,10 +20,13 @@ function Gallary() {
           flexDirection: "column",
           marginTop: { xs: "20px", md: "50px" }
         }}>
-        <Tabs indicatorColor="secondary" value={value} onChange={(e, value) => setValue(value)}>
-          {tabs.map((item, i) => (
+        <Tabs
+          indicatorColor="secondary"
+          value={activeTab}
+          onChange={(e, value) => setActiveTab(value)}>
+          {gallery.tabs.map((item) => (
             <Tab
-              value={"" + i}
+              value={item}
               key={item}
               label={item}
               sx={{
@@ -47,7 +39,7 @@ function Gallary() {
         </Tabs>
         <Box sx={{ flexGrow: 1, marginTop: { xs: "25px", md: "50px" } }}>
           <Grid container spacing={{ xs: 3, md: 5 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-            {imageData.map((img) => (
+            {gallery.parts.map((img) => (
               <Grid item xs={4} key={img.url}>
                 <Box>
                   <img

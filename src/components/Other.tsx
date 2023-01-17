@@ -1,4 +1,4 @@
-import React from "react";
+// components
 import Box from "@mui/material/Box";
 import Contact from "./Contact";
 import Courses from "./Courses";
@@ -8,11 +8,14 @@ import Gallary from "./Gallary";
 import Services from "./Services";
 import Team from "./Team";
 
+// data
+import { home } from "src/data";
+
 function Other() {
   return (
     <Box
       sx={{
-        backgroundImage: "url('https://eden.am/images/1672496510523--mainBack.webp')",
+        backgroundImage: home.backImg,
         backgroundAttachment: "fixed"
       }}>
       <Services />

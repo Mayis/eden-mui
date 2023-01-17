@@ -1,3 +1,6 @@
+import React, { useState } from "react";
+
+// components
 import {
   AppBar,
   IconButton,
@@ -9,26 +12,17 @@ import {
   Toolbar,
   useMediaQuery
 } from "@mui/material";
-import React, { useState } from "react";
 
+// icons
 import BurgerMenu from "./BurgerMenu";
 import LanguageIcon from "@mui/icons-material/Language";
-
-const pages = [
-  "Home",
-  "About Us",
-  "Services",
-  "Courses",
-  "Team",
-  "News & Events",
-  "Gallary",
-  "Contact"
-];
+// data
+import { menu } from "../data";
 
 function Header() {
-  const [value, setValue] = useState("Home");
-  const isMatch = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
+  const [activeNav, setActiveNav] = useState("Home");
   const [langOpen, setLangOpen] = useState<null | HTMLElement>(null);
+  const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setLangOpen(event.currentTarget);
@@ -49,16 +43,16 @@ function Header() {
             alt="eden-logo"
             style={{ width: "70px", height: "75px" }}
           />
-          {isMatch ? (
-            <BurgerMenu />
+          {isMobile ? (
+            <BurgerMenu nav={menu.navbar} />
           ) : (
             <>
               <Tabs
                 sx={{ marginLeft: "auto" }}
                 indicatorColor="secondary"
-                value={value}
-                onChange={(e, value) => setValue(value)}>
-                {pages.map((item) => (
+                value={activeNav}
+                onChange={(e, value) => setActiveNav(value)}>
+                {menu.navbar.map((item) => (
                   <Tab
                     key={item}
                     label={item}

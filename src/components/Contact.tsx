@@ -1,15 +1,16 @@
+// components
 import { Box, Typography } from "@mui/material";
+import Subtitle from "./common/Subtitle";
 
-import React from "react";
-import Subtitle from "../common/Subtitle";
+// data
+import { contact } from "src/data";
 
-const contactData = ["Gevorg Kochar 21, Yerevan", "Everyday 10:00 - 20:00", "+374 41 888 405"];
 function Contact() {
   return (
     <Box sx={{ marginTop: "50px" }}>
       <Subtitle title="Contact" color="black" />
       <Box sx={{ marginTop: "30px" }}>
-        {contactData.map((item) => (
+        {contact.adress.map((item) => (
           <Typography
             variant="body1"
             align="center"

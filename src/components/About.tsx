@@ -1,14 +1,12 @@
+// components
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Subtitle from "../common/Subtitle";
+import Subtitle from "./common/Subtitle";
 import Typography from "@mui/material/Typography";
 
-const aboutUs = [
-  "Pioneering aesthetic clinic",
-  "Modern welcoming facilities",
-  "The very best doctors and specialists",
-  "Dedicated patient care"
-];
+// data
+import { about } from "src/data";
+
 function About() {
   return (
     <Container sx={{ marginTop: { xs: "20px", md: "45px" }, marginBottom: 10 }}>
@@ -17,21 +15,13 @@ function About() {
         variant="body1"
         align="center"
         sx={{ fontSize: { xs: "15px", md: 18 }, margin: "80px 0px" }}>
-        Eden medical center and spa is a leading healthcare institution in Armenia, founded by Dr
-        Siroon Minas, a highly qualified plastic surgeon. Our center offers a range of anti age
-        treatments, massages, facials, stomatology services and more. We are constantly expanding
-        our range of services to meet the individual aesthetic needs of our patients. All our
-        treatments are based on natural methods that provide proven results. In addition, we offer
-        courses for medical specialists in injectables, cosmetology and massages – the most
-        comprehensive teaching program in the country. Our students are highly successful and boast
-        about our high demand for their skills.
+        {about.main}
       </Typography>
       <Typography
         variant="body1"
         align="center"
         sx={{ fontSize: { xs: "15px", md: "18px" }, margin: "80px 0px" }}>
-        In the clinic we perform injection cosmetology, dermatological services, spa, dental
-        services. We work every day from 10:00 to 20:00 We look forward to seeing you in our eden
+        {about.sec}
       </Typography>
       <Box
         sx={{
@@ -42,7 +32,7 @@ function About() {
           alignItems: "center",
           marginTop: "80px"
         }}>
-        {aboutUs.map((item) => (
+        {about.parts.map((item) => (
           <Typography
             key={item}
             variant="body1"
