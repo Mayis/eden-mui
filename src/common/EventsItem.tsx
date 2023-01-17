@@ -1,8 +1,8 @@
-import { Typography, useMediaQuery, useTheme } from '@mui/material';
+import { Typography, useMediaQuery, useTheme } from "@mui/material";
 
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import React from 'react';
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import React from "react";
 
 type Props = {
   item: {
@@ -13,16 +13,16 @@ type Props = {
 };
 function EventsItem({ item }: Props) {
   const theme = useTheme();
-  const isMatch = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMatch = useMediaQuery(theme.breakpoints.down("sm"));
   return (
-    <Box sx={{ flexGrow: 1, marginTop: '25px' }}>
-      <Grid container spacing={isMatch ? 1 : 3} direction={isMatch ? 'column-reverse' : 'row'}>
+    <Box sx={{ flexGrow: 1, marginTop: "25px" }}>
+      <Grid container spacing={isMatch ? 1 : 3} direction={isMatch ? "column-reverse" : "row"}>
         <Grid item xs>
           <Box>
             <img
               src={item.url}
               alt={item.title}
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
           </Box>
         </Grid>
@@ -31,20 +31,20 @@ function EventsItem({ item }: Props) {
             <Typography
               variant="body1"
               align="center"
-              sx={{ fontSize: { xs: '25px', md: '22px' } }}>
+              sx={{ fontSize: { xs: "25px", md: "22px" } }}>
               {item.title}
             </Typography>
             {!isMatch && (
               <Typography
                 variant="body1"
                 sx={{
-                  fontSize: { xs: '12px', sm: '16px' },
-                  marginTop: { xs: '10px', md: '30px' },
+                  fontSize: { xs: "12px", sm: "16px" },
+                  marginTop: { xs: "10px", md: "30px" },
 
-                  display: '-webkit-box',
-                  '-webkit-box-orient': 'vertical',
-                  '-webkit-line-clamp': { xs: '3', md: 'none' },
-                  overflow: 'hidden '
+                  display: "-webkit-box",
+                  "-webkit-box-orient": "vertical",
+                  "-webkit-line-clamp": { xs: "3", md: "none" },
+                  overflow: "hidden "
                 }}>
                 {item.desc}
               </Typography>

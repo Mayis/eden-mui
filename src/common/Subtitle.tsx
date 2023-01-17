@@ -1,5 +1,5 @@
-import React from 'react';
-import Typography from '@mui/material/Typography';
+import React from "react";
+import Typography from "@mui/material/Typography";
 
 type Props = {
   title: string;
@@ -9,9 +9,8 @@ type Props = {
 function Subtitle({ title, color }: Props) {
   return (
     <Typography
-      variant="body1"
       align="center"
-      sx={{ fontSize: { xs: '30px', sm: '40px' }, color: color || 'white' }}>
+      sx={{ fontSize: { xs: "30px", sm: "40px" }, color: color || "white" }}>
       {title}
     </Typography>
   );
