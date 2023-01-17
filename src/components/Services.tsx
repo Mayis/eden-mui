@@ -115,7 +115,6 @@ function Services() {
                 nextEl: '.next',
                 prevEl: '.prev'
               }}
-              //   navigation={true}
               modules={[Navigation]}
               className="mySwiper">
               {serviceData.map((item) => (

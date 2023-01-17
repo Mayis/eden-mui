@@ -25,7 +25,7 @@ const pages = [
   'Contact'
 ];
 function Header() {
-  const [value, setValue] = useState();
+  const [value, setValue] = useState('Home');
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down('md'));
   const [langOpen, setLangOpen] = useState<null | HTMLElement>(null);
@@ -36,6 +36,8 @@ function Header() {
   const handleClose = () => {
     setLangOpen(null);
   };
+
+  console.log(value);
 
   return (
     <>
@@ -61,6 +63,7 @@ function Header() {
                   <Tab
                     key={item}
                     label={item}
+                    value={item}
                     sx={{
                       fontSize: { md: '12px', lg: '14px' },
                       padding: { md: '8px 10px', lg: '12px 16px' }

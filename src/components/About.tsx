@@ -11,12 +11,12 @@ const aboutUs = [
 ];
 function About() {
   return (
-    <Container sx={{ marginTop: { xs: '20px', md: '45px' }, marginBottom: '80px' }}>
+    <Container sx={{ marginTop: { xs: '20px', md: '45px' }, marginBottom: 10 }}>
       <Subtitle title="About" color="black" />
       <Typography
         variant="body1"
         align="center"
-        sx={{ fontSize: { xs: '15px', md: '18px' }, margin: '80px 0px' }}>
+        sx={{ fontSize: { xs: '15px', md: 18 }, margin: '80px 0px' }}>
         Eden medical center and spa is a leading healthcare institution in Armenia, founded by Dr
         Siroon Minas, a highly qualified plastic surgeon. Our center offers a range of anti age
         treatments, massages, facials, stomatology services and more. We are constantly expanding

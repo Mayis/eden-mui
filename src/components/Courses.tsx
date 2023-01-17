@@ -29,7 +29,7 @@ const coursesData = [
 ];
 function Courses() {
   const theme = useTheme();
-  const isMatch = useMediaQuery(theme.breakpoints.down('md'));
+  const isMobileOrTablet = useMediaQuery(theme.breakpoints.down('md'));
   return (
     <Box
       sx={{
@@ -46,7 +46,7 @@ function Courses() {
       </Box>
       <Box sx={{ width: '100%', height: '500px', paddingTop: { xs: '40px', md: '80px' } }}>
         <Swiper
-          slidesPerView={isMatch ? 1 : 2}
+          slidesPerView={isMobileOrTablet ? 1 : 2}
           spaceBetween={30}
           loopFillGroupWithBlank={true}
           loop={true}

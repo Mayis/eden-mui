@@ -4,7 +4,7 @@ import SeeMoreBtn from '../common/SeeMoreBtn';
 import Subtitle from '../common/Subtitle';
 import { useState } from 'react';
 
-const pages = ['Photo Gallery', 'Video Gallery'];
+const tabs = ['Photo Gallery', 'Video Gallery'];
 const imageData = [
   {
     url: 'https://eden.am/_next/image?url=https%3A%2F%2Fedenbysm.com%2Fa8%2F1672499732917--19.webp&w=640&q=75',
@@ -20,7 +20,7 @@ const imageData = [
   }
 ];
 function Gallary() {
-  const [value, setValue] = useState();
+  const [value, setValue] = useState('0');
   return (
     <Box sx={{ marginTop: '50px' }}>
       <Subtitle title="Gallary" color="black" />
@@ -32,8 +32,9 @@ function Gallary() {
           marginTop: { xs: '20px', md: '50px' }
         }}>
         <Tabs indicatorColor="secondary" value={value} onChange={(e, value) => setValue(value)}>
-          {pages.map((item) => (
+          {tabs.map((item, i) => (
             <Tab
+              value={'' + i}
               key={item}
               label={item}
               sx={{

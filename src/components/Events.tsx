@@ -1,4 +1,4 @@
-import { Box, Button, Container } from '@mui/material';
+import { Box, Container } from '@mui/material';
 
 import EventsItem from '../common/EventsItem';
 import React from 'react';

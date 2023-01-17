@@ -34,9 +34,7 @@ function EventsItem({ item }: Props) {
               sx={{ fontSize: { xs: '25px', md: '22px' } }}>
               {item.title}
             </Typography>
-            {isMatch ? (
-              ''
-            ) : (
+            {!isMatch && (
               <Typography
                 variant="body1"
                 sx={{
