@@ -9,7 +9,7 @@ import Subtitle from "./common/Subtitle";
 import { gallery } from "../data";
 
 function Gallary() {
-  const [activeTab, setActiveTab] = useState("Photos");
+  const [activeTab, setActiveTab] = useState("Photo Gallery");
   return (
     <Box sx={{ marginTop: "50px" }}>
       <Subtitle title="Gallary" color="black" />

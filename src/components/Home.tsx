@@ -9,7 +9,7 @@ function Home() {
     <Box
       sx={{
         height: "100vh",
-        backgroundImage: home.homeImg,
+        backgroundImage: `url(${home.homeImg})`,
         backgroundAttachment: { xs: "scroll", md: "fixed" },
         backgroundPosition: "24% center",
         backgroundSize: "cover"

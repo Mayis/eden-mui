@@ -21,8 +21,8 @@ import { menu } from "../data";
 
 function Header() {
   const [activeNav, setActiveNav] = useState("Home");
-  const [langOpen, setLangOpen] = useState<null | HTMLElement>(null);
   const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
+  const [langOpen, setLangOpen] = useState<null | HTMLElement>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setLangOpen(event.currentTarget);
