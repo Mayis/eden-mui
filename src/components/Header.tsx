@@ -12,6 +12,7 @@ import {
   Toolbar,
   useMediaQuery
 } from "@mui/material";
+import { scroller } from "react-scroll";
 
 // icons
 import BurgerMenu from "./BurgerMenu";
@@ -20,20 +21,31 @@ import LanguageIcon from "@mui/icons-material/Language";
 import { menu } from "../data";
 
 function Header() {
-  const [activeNav, setActiveNav] = useState("Home");
+  const [activeNav, setActiveNav] = useState<string>("Home");
   const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
   const [langOpen, setLangOpen] = useState<null | HTMLElement>(null);
 
+  // changing active tabs in navigation menu with scrolling its viewport
+  const handleActiveNavChange = (e: React.SyntheticEvent<Element, Event>, activeNav: string) => {
+    setActiveNav(activeNav);
+    scroller.scrollTo(activeNav, {
+      duration: 1500,
+      delay: 100,
+      smooth: true,
+      offset: -100
+    });
+  };
+  // opening the language part
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setLangOpen(event.currentTarget);
   };
-
+  // closing the language part
   const handleClose = () => {
     setLangOpen(null);
   };
 
   const open = Boolean(langOpen);
-
+  // }
   return (
     <>
       <AppBar sx={{ background: "white" }}>
@@ -46,25 +58,23 @@ function Header() {
           {isMobile ? (
             <BurgerMenu nav={menu.navbar} />
           ) : (
-            <>
-              <Tabs
-                sx={{ marginLeft: "auto" }}
-                indicatorColor="secondary"
-                value={activeNav}
-                onChange={(e, value) => setActiveNav(value)}>
-                {menu.navbar.map((item) => (
-                  <Tab
-                    key={item}
-                    label={item}
-                    value={item}
-                    sx={{
-                      fontSize: { md: "12px", lg: "14px" },
-                      padding: { md: "8px 10px", lg: "12px 16px" }
-                    }}
-                  />
-                ))}
-              </Tabs>
-            </>
+            <Tabs
+              sx={{ marginLeft: "auto" }}
+              indicatorColor="secondary"
+              value={activeNav}
+              onChange={handleActiveNavChange}>
+              {menu.navbar.map((item) => (
+                <Tab
+                  key={item}
+                  label={item}
+                  value={item}
+                  sx={{
+                    fontSize: { md: "12px", lg: "14px" },
+                    padding: { md: "8px 10px", lg: "12px 16px" }
+                  }}
+                />
+              ))}
+            </Tabs>
           )}
           <IconButton sx={{ marginLeft: { md: "15px", lg: "auto" } }} onClick={handleClick}>
             <LanguageIcon />

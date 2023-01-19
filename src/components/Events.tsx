@@ -5,13 +5,14 @@ import { Box, Container } from "@mui/material";
 import EventsItem from "./common/EventsItem";
 import SeeMoreBtn from "./common/SeeMoreBtn";
 import Subtitle from "./common/Subtitle";
+import { Element } from "react-scroll";
 
 // data
 import { events } from "../data";
 
 function Events() {
   return (
-    <div id="newsAndEvents">
+    <Element name="News & Events">
       <Box sx={{ marginTop: "50px" }}>
         <Subtitle title="News & Events" color="black" />
       </Box>
@@ -21,7 +22,7 @@ function Events() {
         ))}
       </Container>
       <SeeMoreBtn />
-    </div>
+    </Element>
   );
 }
 

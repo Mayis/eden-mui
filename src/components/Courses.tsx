@@ -8,6 +8,7 @@ import { Navigation } from "swiper";
 import { Theme, useMediaQuery, Box } from "@mui/material";
 import CoursesItem from "./common/CoursesItem";
 import Subtitle from "./common/Subtitle";
+import { Element } from "react-scroll";
 
 // data
 import { courses } from "../data";
@@ -15,36 +16,38 @@ import { courses } from "../data";
 function Courses() {
   const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
   return (
-    <Box
-      sx={{
-        backgroundImage: "url('https://eden.am/images/1672496638537--coursesBack.webp')",
-        backgroundSize: "cover",
-        display: "flex",
-        alignItems: "center",
-        flexDirection: "column",
-        boxShadow: "inset 0 0 0 2000px rgba(0, 0, 0, 0.429)",
-        padding: { sm: "30px 60px", md: "50px 100px" }
-      }}>
-      <Box>
-        <Subtitle title="Courses" />
+    <Element name="Courses">
+      <Box
+        sx={{
+          backgroundImage: "url('https://eden.am/images/1672496638537--coursesBack.webp')",
+          backgroundSize: "cover",
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "column",
+          boxShadow: "inset 0 0 0 2000px rgba(0, 0, 0, 0.429)",
+          padding: { sm: "30px 60px", md: "50px 100px" }
+        }}>
+        <Box>
+          <Subtitle title="Courses" />
+        </Box>
+        <Box sx={{ width: "100%", height: "500px", paddingTop: { xs: "40px", md: "80px" } }}>
+          <Swiper
+            slidesPerView={isMobile ? 1 : 2}
+            spaceBetween={30}
+            loopFillGroupWithBlank={true}
+            loop={true}
+            navigation={true}
+            modules={[Navigation]}
+            className="mySwiper">
+            {courses.parts.map((item) => (
+              <SwiperSlide key={item.url}>
+                <CoursesItem item={item} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </Box>
       </Box>
-      <Box sx={{ width: "100%", height: "500px", paddingTop: { xs: "40px", md: "80px" } }}>
-        <Swiper
-          slidesPerView={isMobile ? 1 : 2}
-          spaceBetween={30}
-          loopFillGroupWithBlank={true}
-          loop={true}
-          navigation={true}
-          modules={[Navigation]}
-          className="mySwiper">
-          {courses.parts.map((item) => (
-            <SwiperSlide key={item.url}>
-              <CoursesItem item={item} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </Box>
-    </Box>
+    </Element>
   );
 }
 
