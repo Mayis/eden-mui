@@ -14,8 +14,13 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 // data
 import { services } from "../data";
+import { useNavigate } from "react-router-dom";
 
 function Services() {
+  const navigate = useNavigate();
+  const handleClick = (id: number) => {
+    navigate(`/services/${id}`);
+  };
   return (
     <Element name="Services">
       <Box sx={{ paddingTop: "20px" }}>
@@ -49,7 +54,7 @@ function Services() {
               modules={[Navigation]}
               className="mySwiper">
               {services.parts.map((item) => (
-                <SwiperSlide key={item.title}>
+                <SwiperSlide key={item.title} onClick={() => handleClick(item.id)}>
                   <img src={item.url} />
                   <div className="titleDiv">
                     <Typography

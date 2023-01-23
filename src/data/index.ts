@@ -9,74 +9,144 @@ export const home = {
 export const services = {
   parts: [
     {
+      id: 1,
       title: "WRINKLE CORREKTION",
-      url: "https://edenbysm.com/a8/1672498367726--IMG_4990.webp"
+      url: "https://edenbysm.com/a8/1672498367726--IMG_4990.webp",
+      desc: "Botulinum therapy or botox therapy Botulinum toxin is injected into the body to prevent chosen muscle action to get rid of wrinkles. Botox treats and corrects many problems in the field of aesthetics. -Treatment of hyperhidrosis on the hand palms and armpits -Treatment of migraine by special technique injection -Wrinkle correction -Gummy smile correction",
+      priceList: {
+        title: "BOTULINUM TOXIN",
+        list: [
+          {
+            title: "1 area forehead/glabella/eyes",
+            price: 38000
+          },
+          {
+            title: "2 area forehead+glabella/around eyes+glabella/ forehead+around eyes",
+            price: 54000
+          },
+          {
+            title: "3 area forehead+glabella+eyes",
+            price: 69000
+          },
+          {
+            title: "Chin area",
+            price: 22000
+          },
+          {
+            title: "Masseter muscle injection",
+            price: 30000
+          },
+          {
+            title: "Gummy smile correction",
+            price: 22000
+          },
+          {
+            title: "Platisma injection/neck",
+            price: 38000
+          }
+        ]
+      }
     },
     {
+      id: 2,
       title: "FACIAL CONTOURING",
-      url: "https://edenbysm.com/a8/1672496121487--IMG_5051.webp"
+      url: "https://edenbysm.com/a8/1672496121487--IMG_5051.webp",
+      desc: "Contour plastic surgery is performed by injecting fillers. Fillers are substances based on hyaluronic acid. They are harmless, because the body naturally synthesizes hyaluronic acid. Depending on the choice of filler, the result of the intervention is preserved for 6-18 months, after which it is absorbed. A number of aesthetic interventions are performed using fillers: ● Lip augmentation ● Correction of facial contours ● Correction of deep wrinkles, for example the nasolabial folds ● Correction of the nasolacrimal groove (tear trough) ● Non-surgical rhinoplasty",
+      priceList: {
+        title: "FACIAL COUNTORUING",
+        list: [
+          {
+            title: "Hyalax Light Germany up to 6 month",
+            price: 40000
+          },
+          {
+            title: "Hyalax Base Germany up to 12 month",
+            price: 45000
+          },
+          {
+            title: "Restylane Defyne/Lyft 12-18 month",
+            price: 145000
+          }
+        ]
+      }
     },
     {
+      id: 3,
       title: "DEEP HYDRATION",
       url: "https://edenbysm.com/a8/1672498473866--IMG_5282.webp"
     },
     {
+      id: 4,
       title: "MESOTHERAPHY",
       url: "https://edenbysm.com/a8/1672498515878--IMG_5111.webp"
     },
     {
+      id: 5,
       title: "PRP",
       url: "https://edenbysm.com/a8/1672498552091--IMG_5157.webp"
     },
     {
+      id: 6,
       title: "FAT DISSOLVING TREATMENT",
       url: "https://edenbysm.com/a8/1672498589090--IMG_5400.webp"
     },
     {
+      id: 7,
       title: "FACIAL",
       url: "https://edenbysm.com/a8/1672498621332--IMG_4010.webp"
     },
     {
+      id: 8,
       title: "CARE",
       url: "https://edenbysm.com/a8/1672498647487--IMG_4115.webp"
     },
     {
+      id: 9,
       title: "PEELS",
       url: "https://edenbysm.com/a8/1672498674033--IMG_4337.webp"
     },
     {
+      id: 10,
       title: "HAIR REMOVAL",
       url: "https://edenbysm.com/a8/1672498742320--IMG_6590.webp"
     },
     {
+      id: 11,
       title: "RF MICRONEEDLING",
       url: "https://edenbysm.com/a8/1672498712912--IMG_7955.webp"
     },
     {
+      id: 12,
       title: "DERMAPEN",
       url: "https://edenbysm.com/a8/1672498762793--IMG_4712.webp"
     },
     {
+      id: 14,
       title: "PARMANENT MAKEUP",
       url: "https://edenbysm.com/a8/1672498787697--Microblading_eyebrows.webp"
     },
     {
+      id: 15,
       title: "SPA MASSAGES",
       url: "https://edenbysm.com/a8/1672498857234--IMG_7545.webp"
     },
     {
+      id: 16,
       title: "THERAPEUTIC MASSAGE",
       url: "https://edenbysm.com/a8/1672498869776--IMG_7543.webp"
     },
     {
+      id: 17,
       title: "PHYTOSAUNA",
       url: "https://edenbysm.com/a8/1672498893008--IMG_7409.webp"
     },
     {
+      id: 18,
       title: "COUPLE MASSAGE",
       url: "https://edenbysm.com/a8/1672498920923--IMG_3727.webp"
     },
     {
+      id: 19,
       title: "BODY WRAPPING",
       url: "https://edenbysm.com/a8/1672498934195--IMG_7686.webp"
     }
