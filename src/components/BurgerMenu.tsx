@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { scroller } from "react-scroll";
 
 // components
 import {
@@ -9,7 +10,6 @@ import {
   ListItemIcon,
   ListItemText
 } from "@mui/material";
-import { scroller } from "react-scroll";
 
 // icons
 import MenuIcon from "@mui/icons-material/Menu";
@@ -20,6 +20,7 @@ type Props = {
 
 function BurgerMenu({ nav }: Props) {
   const [openDrawer, setOpenDrawer] = useState(false);
+
   const handleScroll = (item: string) => {
     scroller.scrollTo(item, {
       duration: 1500,

@@ -28,8 +28,13 @@ type Props = {
 };
 
 function ServicesItem({ item }: Props) {
+  // active service id
   const { serviceId } = useParams();
+
+  // state for active/expanded panel
   const [expanded, setExpanded] = useState<string | false>(`panel${serviceId}`);
+
+  //  scroll to the active panel
   useEffect(() => {
     scroller.scrollTo(`panel${serviceId}`, {
       duration: 1000,
@@ -38,9 +43,12 @@ function ServicesItem({ item }: Props) {
       offset: -100
     });
   }, []);
+
+  //  function for changing active panel
   const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
     setExpanded(isExpanded ? panel : false);
   };
+
   return (
     <Element name={`panel${item.id}`}>
       <Accordion

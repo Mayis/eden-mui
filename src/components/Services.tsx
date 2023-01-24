@@ -9,15 +9,19 @@ import Subtitle from "./common/Subtitle";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { Element } from "react-scroll";
+
 // icons
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+
 // data
 import { services } from "../data";
 import { useNavigate } from "react-router-dom";
 
 function Services() {
   const navigate = useNavigate();
+
+  // handle click to navigate selected service page
   const handleClick = (id: number) => {
     navigate(`/services/${id}`);
     window.scrollTo(0, 0);

@@ -8,9 +8,9 @@ import { Navigation } from "swiper";
 import { Theme, useMediaQuery, Box } from "@mui/material";
 import Subtitle from "./common/Subtitle";
 import TeamItem from "./common/TeamItem";
+import { Element } from "react-scroll";
 // data
 import { team } from "../data";
-import { Element } from "react-scroll";
 
 function Team() {
   const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));

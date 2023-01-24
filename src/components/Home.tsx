@@ -1,9 +1,10 @@
 // components
 import Box from "@mui/material/Box";
+import { Element } from "react-scroll";
 
 // data
 import { home } from "../data";
-import { Element } from "react-scroll";
+
 function Home() {
   return (
     // in mobile(ios)  fixed background not working

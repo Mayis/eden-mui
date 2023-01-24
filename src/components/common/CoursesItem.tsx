@@ -1,6 +1,6 @@
-import React from "react";
 // components
 import { Box, Button, Typography } from "@mui/material";
+
 type Props = {
   item: {
     title: string;
@@ -8,6 +8,7 @@ type Props = {
     desc: string;
   };
 };
+
 function CoursesItem({ item }: Props) {
   return (
     <Box

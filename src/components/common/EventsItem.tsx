@@ -1,8 +1,5 @@
-import { Typography, useMediaQuery, useTheme } from "@mui/material";
-
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import React from "react";
+// components
+import { Theme, Typography, useMediaQuery, Box, Grid } from "@mui/material";
 
 type Props = {
   item: {
@@ -12,8 +9,7 @@ type Props = {
   };
 };
 function EventsItem({ item }: Props) {
-  const theme = useTheme();
-  const isMatch = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMatch = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
   return (
     <Box sx={{ flexGrow: 1, marginTop: "25px" }}>
       <Grid container spacing={isMatch ? 1 : 3} direction={isMatch ? "column-reverse" : "row"}>

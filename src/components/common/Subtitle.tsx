@@ -1,4 +1,4 @@
-import React from "react";
+// components
 import Typography from "@mui/material/Typography";
 
 type Props = {

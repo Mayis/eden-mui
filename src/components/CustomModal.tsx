@@ -1,13 +1,9 @@
-import React from "react";
-
 // components
-
 import Modal from "@mui/material/Modal";
 import { Box, Typography } from "@mui/material";
 
 type Props = {
   open: boolean;
-
   handleClose: () => void;
 };
 const style = {
@@ -21,6 +17,7 @@ const style = {
   boxShadow: 24,
   p: 4
 };
+
 function CustomModal({ open, handleClose }: Props) {
   return (
     <Modal

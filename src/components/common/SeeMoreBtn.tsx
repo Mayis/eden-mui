@@ -1,6 +1,5 @@
+// components
 import { Box, Button } from "@mui/material";
-
-import React from "react";
 
 function SeeMoreBtn() {
   return (

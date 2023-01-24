@@ -22,8 +22,8 @@ import { menu } from "../data";
 
 function Header() {
   const [activeNav, setActiveNav] = useState<string>("Home");
-  const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
   const [langOpen, setLangOpen] = useState<null | HTMLElement>(null);
+  const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
 
   // changing active tabs in navigation menu with scrolling its viewport
   const handleActiveNavChange = (e: React.SyntheticEvent<Element, Event>, activeNav: string) => {
@@ -45,7 +45,7 @@ function Header() {
   };
 
   const open = Boolean(langOpen);
-  // }
+
   return (
     <>
       <AppBar sx={{ background: "white" }}>
