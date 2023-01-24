@@ -7,6 +7,7 @@ import Subtitle from "../components/common/Subtitle";
 import { services } from "../data";
 import ServicesItem from "../components/common/ServicesItem";
 import CustomModal from "../components/CustomModal";
+import ComboPackage from "../components/ComboPackage";
 
 function Services() {
   const [open, setOpen] = React.useState(false);
@@ -29,6 +30,9 @@ function Services() {
                 <ServicesItem item={item} />
               </Grid>
             ))}
+            <Grid item xs={12}>
+              <ComboPackage item={services.combo} />
+            </Grid>
           </Grid>
         </Grid>
       </Container>

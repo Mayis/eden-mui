@@ -150,7 +150,22 @@ export const services = {
       title: "BODY WRAPPING",
       url: "https://edenbysm.com/a8/1672498934195--IMG_7686.webp"
     }
-  ]
+  ],
+  combo: {
+    id: 0,
+    title: "Combo Packages",
+    subtitle: "Hydrating combo 1",
+    services: [
+      {
+        serviceName: "Hyalax Revitalize Skin",
+        price: 44000
+      },
+      {
+        serviceName: "PRX-T33",
+        price: 30000
+      }
+    ]
+  }
 };
 
 export const courses = {
