@@ -23,23 +23,16 @@ function Services() {
           <Grid item xs={12}>
             <Subtitle title="Services" color="black" />
           </Grid>
-          <Grid item xs={12} container spacing="2px">
+          <Grid item xs={12} container spacing={2}>
             {services.parts.map((item) => (
-              <Grid
-                item
-                onClick={handleOpen}
-                xs={12}
-                sm={6}
-                lg={4}
-                key={item.url}
-                sx={{ height: { xs: "150px", md: "250px" } }}>
+              <Grid item onClick={handleOpen} xs={12} key={item.url}>
                 <ServicesItem item={item} />
               </Grid>
             ))}
           </Grid>
         </Grid>
       </Container>
-      <CustomModal open={open} handleClose={handleClose} />
+      {/* <CustomModal open={open} handleClose={handleClose} /> */}
     </>
   );
 }

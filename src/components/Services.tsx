@@ -20,6 +20,7 @@ function Services() {
   const navigate = useNavigate();
   const handleClick = (id: number) => {
     navigate(`/services/${id}`);
+    window.scrollTo(0, 0);
   };
   return (
     <Element name="Services">
