@@ -164,7 +164,8 @@ export const services = {
         serviceName: "PRX-T33",
         price: 30000
       }
-    ]
+    ],
+    sales: 67000
   }
 };
 

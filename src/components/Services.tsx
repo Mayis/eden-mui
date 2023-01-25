@@ -22,7 +22,7 @@ function Services() {
   const navigate = useNavigate();
 
   // handle click to navigate selected service page
-  const handleClick = (id: number) => {
+  const handleNavigate = (id: number) => {
     navigate(`/services/${id}`);
     window.scrollTo(0, 0);
   };
@@ -59,7 +59,7 @@ function Services() {
               modules={[Navigation]}
               className="mySwiper">
               {services.parts.map((item) => (
-                <SwiperSlide key={item.title} onClick={() => handleClick(item.id)}>
+                <SwiperSlide key={item.title} onClick={() => handleNavigate(item.id)}>
                   <img src={item.url} />
                   <div className="titleDiv">
                     <Typography
@@ -77,6 +77,7 @@ function Services() {
             <KeyboardArrowDownIcon />
           </IconButton>
           <Button
+            onClick={() => handleNavigate(services.combo.id)}
             sx={{
               backgroundImage:
                 "url('https://eden.am/_next/static/media/servicesButton.2ce577ea.png')",

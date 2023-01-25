@@ -17,17 +17,19 @@ type priceList = {
   title: string;
   list: { title: string; price: number }[];
 };
-type Props = {
-  item: {
-    id: number;
-    title: string;
-    url: string;
-    desc?: string;
-    priceList?: priceList;
-  };
+export type Item = {
+  id: number;
+  title: string;
+  url: string;
+  desc?: string;
+  priceList?: priceList;
+};
+type ItemProps = {
+  item: Item;
+  handleClickOpen: (id: number) => void;
 };
 
-function ServicesItem({ item }: Props) {
+function ServicesItem({ item, handleClickOpen }: ItemProps) {
   // active service id
   const { serviceId } = useParams();
 
@@ -76,6 +78,7 @@ function ServicesItem({ item }: Props) {
               <Grid item container xs={12} md={6} justifyContent="center" alignItems="center">
                 <Grid item xs={12} md={6}>
                   <Button
+                    onClick={() => handleClickOpen(item.id)}
                     variant="outlined"
                     sx={{
                       padding: { xs: "4px 8px", md: "8px 10px" },

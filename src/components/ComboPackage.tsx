@@ -6,12 +6,18 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
-import Button from "@mui/material/Button";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
 import { Element, scroller } from "react-scroll";
 
 // icons
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Subtitle from "./common/Subtitle";
 
 type Props = {
   item: {
@@ -19,6 +25,7 @@ type Props = {
     title: string;
     subtitle: string;
     services: { serviceName: string; price: number }[];
+    sales: number;
   };
 };
 function ComboPackage({ item }: Props) {
@@ -54,7 +61,42 @@ function ComboPackage({ item }: Props) {
           id="panel1a-header">
           <Typography>{item.title}</Typography>
         </AccordionSummary>
-        <AccordionDetails></AccordionDetails>
+        <AccordionDetails>
+          <Subtitle title={item.subtitle} color="black" />
+          <TableContainer component={Paper} sx={{ marginTop: "20px" }}>
+            <Table sx={{ width: "100%" }} aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>Services</TableCell>
+                  <TableCell align="right">Price</TableCell>
+                  <TableCell align="right">Combo Price</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {item.services.map((row) => (
+                  <TableRow
+                    key={row.serviceName}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+                    <TableCell component="th" scope="row">
+                      {row.serviceName}
+                    </TableCell>
+                    <TableCell align="right">{row.price}</TableCell>
+                    <TableCell align="right"></TableCell>
+                  </TableRow>
+                ))}
+                <TableRow>
+                  <TableCell component="th" scope="row">
+                    Price
+                  </TableCell>
+                  <TableCell align="right" sx={{ color: "red", textDecoration: "line-through" }}>
+                    {item.services.reduce((a, { price }) => a + price, 0)}
+                  </TableCell>
+                  <TableCell align="right">{item.sales}</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </AccordionDetails>
       </Accordion>
     </Element>
   );
