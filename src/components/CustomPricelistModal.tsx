@@ -5,7 +5,6 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
-import { TransitionProps } from "@mui/material/transitions";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -14,6 +13,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import IconButton from "@mui/material/IconButton";
+import { TransitionProps } from "@mui/material/transitions";
 
 // icons
 import CloseIcon from "@mui/icons-material/Close";
@@ -37,7 +37,7 @@ type Props = {
   item: Item;
 };
 
-function CustomModal({ open, handleClose, item }: Props) {
+function CustomPricelistModal({ open, handleClose, item }: Props) {
   return (
     <Dialog
       open={open}
@@ -83,4 +83,4 @@ function CustomModal({ open, handleClose, item }: Props) {
   );
 }
 
-export default CustomModal;
+export default CustomPricelistModal;

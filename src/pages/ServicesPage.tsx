@@ -1,15 +1,20 @@
 import { useState } from "react";
 
 // components
-import { Container } from "@mui/material";
+import { Container, IconButton } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Subtitle from "../components/common/Subtitle";
 import { services } from "../data";
 import ServicesItem from "../components/common/ServicesItem";
-import CustomModal from "../components/CustomModal";
+import CustomPricelistModal from "../components/CustomPricelistModal";
 import ComboPackage from "../components/ComboPackage";
 
+// icons
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useNavigate } from "react-router-dom";
+
 function Services() {
+  const navigate = useNavigate();
   // modal for price list
   const [openModal, setModalOpen] = useState(false);
   const [activeItem, setActiveItem] = useState<null | number>(null);
@@ -22,12 +27,22 @@ function Services() {
   const handleClose = () => {
     setModalOpen(false);
   };
+  const handleNavigateBack = () => {
+    navigate(-1);
+  };
   return (
     <>
       <Container>
         <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <Subtitle title="Services" color="black" />
+          <Grid item container xs={12}>
+            <Grid item xs={2}>
+              <IconButton onClick={handleNavigateBack}>
+                <ArrowBackIcon />
+              </IconButton>
+            </Grid>
+            <Grid item xs={10}>
+              <Subtitle title="Services" color="black" />
+            </Grid>
           </Grid>
           <Grid item xs={12} container spacing={2}>
             {services.parts.map((item) => (
@@ -42,7 +57,7 @@ function Services() {
         </Grid>
       </Container>
       {activeItem && (
-        <CustomModal
+        <CustomPricelistModal
           open={openModal}
           handleClose={handleClose}
           // ??????????????????
