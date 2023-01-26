@@ -9,12 +9,31 @@ import { Theme, useMediaQuery, Box } from "@mui/material";
 import CoursesItem from "./common/CoursesItem";
 import Subtitle from "./common/Subtitle";
 import { Element } from "react-scroll";
+import CustomCoursesModal from "./CustomCoursesModal";
 
 // data
 import { courses } from "../data";
+import { useState } from "react";
 
 function Courses() {
   const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
+
+  // modal for price list
+  const [openModal, setModalOpen] = useState(false);
+  const [activeItem, setActiveItem] = useState<null | number>(null);
+
+  // set modal true
+  const handleClickOpen = (id: number) => {
+    setModalOpen(true);
+    setActiveItem(id);
+  };
+
+  //  set modal false
+  const handleClose = () => {
+    setModalOpen(false);
+    setActiveItem(null);
+  };
+
   return (
     <Element name="Courses">
       <Box
@@ -41,12 +60,19 @@ function Courses() {
             className="mySwiper">
             {courses.parts.map((item) => (
               <SwiperSlide key={item.url}>
-                <CoursesItem item={item} />
+                <CoursesItem item={item} handleClickOpen={handleClickOpen} />
               </SwiperSlide>
             ))}
           </Swiper>
         </Box>
       </Box>
+      {activeItem && (
+        <CustomCoursesModal
+          open={openModal}
+          handleClose={handleClose}
+          item={courses.parts.filter((item) => item.id === activeItem)[0]}
+        />
+      )}
     </Element>
   );
 }

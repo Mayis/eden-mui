@@ -1,15 +1,18 @@
 // components
 import { Box, Button, Typography } from "@mui/material";
-
+export type CourseItem = {
+  id: number;
+  title: string;
+  url: string;
+  desc: string;
+  fullDesc: string;
+};
 type Props = {
-  item: {
-    title: string;
-    url: string;
-    desc: string;
-  };
+  item: CourseItem;
+  handleClickOpen: (id: number) => void;
 };
 
-function CoursesItem({ item }: Props) {
+function CoursesItem({ item, handleClickOpen }: Props) {
   return (
     <Box
       sx={{
@@ -44,6 +47,7 @@ function CoursesItem({ item }: Props) {
         </Typography>
       </Box>
       <Button
+        onClick={() => handleClickOpen(item.id)}
         size="large"
         variant="outlined"
         sx={{ padding: "7px 70px", marginTop: "70px", color: "white" }}>

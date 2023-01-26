@@ -172,19 +172,28 @@ export const services = {
 export const courses = {
   parts: [
     {
+      id: 1,
       title: "MASSAGE COURSE",
       url: "https://eden.am/_next/image?url=https%3A%2F%2Fedenbysm.com%2Fa8%2F1672499069088--IMG_3734.webp&w=256&q=75",
-      desc: "At Eden Spa we offer professional massage courses to master both the theoretical and practical skills. The courses are conducted both separately with chosen topic and full course to master all of the necessary skills."
+      desc: "At Eden Spa we offer professional massage courses to master both the theoretical and practical skills. The courses are conducted both separately with chosen topic and full course to master all of the necessary skills.",
+      fullDesc:
+        "Facial massages The duration of training session is 10 training days During this course we go through the muscular structure of the face, sculptural, myolifting and a number of other techniques that help rejuvenate the face, get a non-surgical lifting effect. Moreover we will discuss spa facial massages during the course. Anti-cellulite / modelling massage The course lasts 1 month. The anti-cellulite lipomodeling massage course includes theoretical and practical exercises. About cellulite, causes, tools and their effect on cellulite reduction. Therapeutic Massage Duration 1 month Therapeutic massage course includes anatomy, posture of the spine, practical-theoretical lessons of its correction. Primary medical education is mandatory. Spa massage Duration 1 month Types of spa massage, uniquely developed techniques by eden spa specialists. Within a month you will learn about muscles, spa massages, their effective use to reduce stress."
     },
     {
+      id: 2,
       title: "BASICS OF COSMETOLOGY",
       url: "https://eden.am/_next/image?url=https%3A%2F%2Fedenbysm.com%2Fa8%2F1672499091804--IMG_4164.webp&w=256&q=75",
-      desc: "Basics (general) of cosmetology course in eden. From theoretical lessons on skin anatomy, types and diseases to hardware cosmetology, peels and cleansing."
+      desc: "Basics (general) of cosmetology course in eden. From theoretical lessons on skin anatomy, types and diseases to hardware cosmetology, peels and cleansing.",
+      fullDesc:
+        "The general cosmetology course is enough to master all the necessary skills of the profession. Medical secondary education is mandatory. During the course we learn and practice 1. Skin anatomy 2. Skin supplements 3. Skin types 4. Ageing of the skin 5. Skin diseases 6. Materials used in cosmetology 7. Disinfection of tools 8. Care for different skin types different ages 9. Dyschromias 10. Peelings: Mechanical Physical Chemical 11. Hardware cosmetology: RF lifting Fractional RF LED Phonophoresis Microtocs Hydrafacial Microdermabrasion 12. Facial cleansing: Ultrasound Mechanical 13. Cryotherapy 14. elos/shr hair removal 15. Carbon peeling 16. Needle epilation 17. Ear piercing 18. Correction of eyebrows 19.Fractional mesotherapy (dermapen) 20. Removal of papillomas (plasmapen) The duration is 1.5-2 months."
     },
     {
+      id: 3,
       title: "INJECTIONAL COSMETOLOGY",
       url: "https://eden.am/_next/image?url=https%3A%2F%2Fedenbysm.com%2Fa8%2F1672498989824--AH9A9957.webp&w=640&q=75",
-      desc: "The course includes practical-theoretical lessons by Dr Siroon Minas."
+      desc: "The course includes practical-theoretical lessons by Dr Siroon Minas.",
+      fullDesc:
+        "The full course of Injectable Cosmology includes: Mesotherapy, basics of biorevitalization, bioremediation, lipolytic injections and plasmotherapy Botulinum therapy contour plastic (filler) The necessary theoretical-practical training, the necessary preparations for practical training are included. If necessary, we also provide models. The course lasts one month. Initial medical education is required for the courses. The course includes theoretical և practical lessons to fully master the skills of the profession. In addition to the course, you can take the above courses separately. At the end of the courses, a certificate is issued by the centre."
     }
   ]
 };
