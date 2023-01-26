@@ -6,7 +6,7 @@ import { Navigation } from "swiper";
 
 // components
 import { Theme, useMediaQuery, Box } from "@mui/material";
-import CoursesItem from "./common/CoursesItem";
+import CoursesItem, { CourseItem } from "./common/CoursesItem";
 import Subtitle from "./common/Subtitle";
 import { Element } from "react-scroll";
 import CustomCoursesModal from "./CustomCoursesModal";
@@ -18,21 +18,17 @@ import { useState } from "react";
 function Courses() {
   const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
 
-  // modal for price list
-  const [openModal, setModalOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState<null | number>(null);
+  const [activeItem, setActiveItem] = useState<null | CourseItem>(null);
 
-  // set modal true
   const handleClickOpen = (id: number) => {
-    setModalOpen(true);
-    setActiveItem(id);
+    setActiveItem(courses.parts.find((item) => item.id === id) || null);
   };
 
-  //  set modal false
   const handleClose = () => {
-    setModalOpen(false);
     setActiveItem(null);
   };
+
+  const isModalOpen = Boolean(activeItem);
 
   return (
     <Element name="Courses">
@@ -66,13 +62,7 @@ function Courses() {
           </Swiper>
         </Box>
       </Box>
-      {activeItem && (
-        <CustomCoursesModal
-          open={openModal}
-          handleClose={handleClose}
-          item={courses.parts.filter((item) => item.id === activeItem)[0]}
-        />
-      )}
+      {isModalOpen && <CustomCoursesModal open handleClose={handleClose} item={activeItem!} />}
     </Element>
   );
 }

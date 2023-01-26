@@ -1,35 +1,41 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // components
 import { Container, IconButton } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Subtitle from "../components/common/Subtitle";
-import { services } from "../data";
 import ServicesItem from "../components/common/ServicesItem";
 import CustomPricelistModal from "../components/CustomPricelistModal";
 import ComboPackage from "../components/ComboPackage";
 
 // icons
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { useNavigate } from "react-router-dom";
 
-function Services() {
+// data
+import { services } from "../data";
+
+type ServicePart = typeof services.parts[0];
+
+function ServicesPage() {
   const navigate = useNavigate();
   // modal for price list
-  const [openModal, setModalOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState<null | number>(null);
-  // set modal true
+  const [activeItem, setActiveItem] = useState<null | ServicePart>(null);
+
   const handleClickOpen = (id: number) => {
-    setModalOpen(true);
-    setActiveItem(id);
+    setActiveItem(services.parts.find((item) => item.id === id) || null);
   };
-  //  set modal false
+
   const handleClose = () => {
-    setModalOpen(false);
+    setActiveItem(null);
   };
+
   const handleNavigateBack = () => {
     navigate(-1);
   };
+
+  const isModalOpen = Boolean(activeItem);
+
   return (
     <>
       <Container>
@@ -56,16 +62,9 @@ function Services() {
           </Grid>
         </Grid>
       </Container>
-      {activeItem && (
-        <CustomPricelistModal
-          open={openModal}
-          handleClose={handleClose}
-          // ??????????????????
-          item={services.parts.filter((item) => item.id === activeItem)[0]}
-        />
-      )}
+      {isModalOpen && <CustomPricelistModal open handleClose={handleClose} item={activeItem!} />}
     </>
   );
 }
 
-export default Services;
+export default ServicesPage;

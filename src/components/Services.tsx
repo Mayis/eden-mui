@@ -21,11 +21,11 @@ import { useNavigate } from "react-router-dom";
 function Services() {
   const navigate = useNavigate();
 
-  // handle click to navigate selected service page
   const handleNavigate = (id: number) => {
     navigate(`/services/${id}`);
     window.scrollTo(0, 0);
   };
+
   return (
     <Element name="Services">
       <Box sx={{ paddingTop: "20px" }}>

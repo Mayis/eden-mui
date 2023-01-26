@@ -11,9 +11,17 @@ import TeamItem from "./common/TeamItem";
 import { Element } from "react-scroll";
 // data
 import { team } from "../data";
+import { useNavigate } from "react-router-dom";
 
 function Team() {
+  const navigate = useNavigate();
   const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
+
+  // handle click to navigate selected member page
+  const handleNavigate = (id: number) => {
+    navigate(`/member/${id}`);
+    window.scrollTo(0, 0);
+  };
   return (
     <Element name="Team">
       <Box
@@ -36,7 +44,7 @@ function Team() {
             modules={[Navigation]}
             className="mySwiper">
             {team.parts.map((item) => (
-              <SwiperSlide key={item.url}>
+              <SwiperSlide key={item.url} onClick={() => handleNavigate(item.id)}>
                 <TeamItem item={item} />
               </SwiperSlide>
             ))}

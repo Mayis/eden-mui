@@ -4,7 +4,8 @@ import Main from "./pages/Main";
 
 // routing
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Services from "./pages/ServicesPage";
+import ServicesPage from "./pages/ServicesPage";
+import MemberPage from "./pages/MemberPage";
 
 const theme = createTheme();
 function App() {
@@ -14,8 +15,11 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="/services" element={<Services />}>
-              <Route path="/services:serviceId" element={<Services />} />
+            <Route path="/services" element={<ServicesPage />}>
+              <Route path="/services:serviceId" element={<ServicesPage />} />
+            </Route>
+            <Route path="/member" element={<MemberPage />}>
+              <Route path="/member:memberId" element={<MemberPage />} />
             </Route>
           </Routes>
         </BrowserRouter>

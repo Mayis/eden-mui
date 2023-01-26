@@ -1,12 +1,17 @@
 // components
 import { Box, Typography } from "@mui/material";
 
+export type TeamItem = {
+  id: number;
+  name: string;
+  pos: string;
+  url: string;
+  nameArm?: string;
+  posArm?: string;
+  descArm?: string;
+};
 type Props = {
-  item: {
-    name: string;
-    pos: string;
-    url: string;
-  };
+  item: TeamItem;
 };
 function TeamItem({ item }: Props) {
   return (
