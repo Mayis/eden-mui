@@ -1,15 +1,18 @@
 import { useState } from "react";
 
 // components
-import { Box, Container, Grid, Tab, Tabs, Typography } from "@mui/material";
+import { Box, Container, Tab, Tabs } from "@mui/material";
 import SeeMoreBtn from "./common/SeeMoreBtn";
 import Subtitle from "./common/Subtitle";
 import { Element } from "react-scroll";
 // data
 import { gallery } from "../data";
+import GalleryPhotos from "./GalleryPhotos";
+import GalleryVideos from "./GalleryVideos";
 
 function Gallary() {
   const [activeTab, setActiveTab] = useState("Photo Gallery");
+  console.log(activeTab);
   return (
     <Element name="Gallary" id="Gallary">
       <Box sx={{ marginTop: "50px" }}>
@@ -39,22 +42,11 @@ function Gallary() {
             ))}
           </Tabs>
           <Box sx={{ flexGrow: 1, marginTop: { xs: "25px", md: "50px" } }}>
-            <Grid container spacing={{ xs: 3, md: 5 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-              {gallery.parts.map((img) => (
-                <Grid item xs={4} key={img.url}>
-                  <Box>
-                    <img
-                      src={img.url}
-                      alt={img.title}
-                      style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                    />
-                    <Typography variant="body1" align="center">
-                      {img.title}
-                    </Typography>
-                  </Box>
-                </Grid>
-              ))}
-            </Grid>
+            {activeTab === "Photo Gallery" ? (
+              <GalleryPhotos photo={gallery.parts} />
+            ) : (
+              <GalleryVideos />
+            )}
           </Box>
           <SeeMoreBtn />
         </Container>

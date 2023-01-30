@@ -1,70 +1,58 @@
 import { useParams } from "react-router-dom";
-// swiper slider
-import "swiper/css";
-import "swiper/css/navigation";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
 
 // components
-import { Container, Grid, IconButton, Typography, Box } from "@mui/material";
+import { Container, Grid, Typography, Box, Stack, Divider } from "@mui/material";
 import Subtitle from "../components/common/Subtitle";
-
-// icons
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-
-// types
-import { TeamItem } from "../components/common/TeamItem";
+import MemberPageSlider from "../components/MemberPageSlider";
 
 // data
 import { team } from "../data";
+import BackButton from "../components/common/BackButton";
 
-type Props = {
-  item: TeamItem;
-};
 function MemberPage() {
   const { memberId } = useParams();
-
   const member = team.parts.find((item) => item.id === +memberId!)!;
-  console.log(member);
+
   return (
     <Container>
       <Grid container rowSpacing={3}>
         <Grid item container xs={12} alignItems="center">
           <Grid item xs position="absolute">
-            <IconButton size="large">
-              <ArrowBackIcon />
-            </IconButton>
+            <BackButton />
           </Grid>
           <Grid item xs={12}>
             <Subtitle title="Member" color="black" />
           </Grid>
         </Grid>
         <Grid item container xs={12} spacing={3}>
-          <Grid item xs={4} sx={{ height: "400px" }}>
+          <Grid item xs={12} md={4} sx={{ height: "400px" }}>
             <img
               src={member.url}
               alt={member.name}
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              style={{ width: "100%", height: "100%", objectFit: "contain" }}
             />
           </Grid>
-          <Grid
-            item
-            xs={8}
-            container
-            direction="column"
-            justifyContent="space-around"
-            alignItems="flex-start">
-            <Grid item xs={4}>
-              <Typography variant="h5">{member.nameArm}</Typography>
-              <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                {member.posArm}
-              </Typography>
-            </Grid>
-            <Grid item xs={8}>
-              <Typography align="justify" sx={{ fontSize: 16 }}>
-                {member.descArm}
-              </Typography>
-            </Grid>
+          <Grid item xs={12} md={8} sx={{ width: "100%" }} container>
+            <Stack
+              direction="column"
+              sx={{ width: "100%" }}
+              divider={<Divider flexItem />}
+              spacing={2}>
+              <Box>
+                <Typography variant="h5">{member.nameArm}</Typography>
+                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                  {member.posArm}
+                </Typography>
+              </Box>
+              <Box>
+                <Typography align="justify" sx={{ fontSize: { xs: "14px", md: "16px" } }}>
+                  {member.descArm}
+                </Typography>
+              </Box>
+              <Box sx={{ width: { xs: "100%", md: "60%" } }}>
+                <MemberPageSlider url={member.url} />
+              </Box>
+            </Stack>
           </Grid>
         </Grid>
       </Grid>

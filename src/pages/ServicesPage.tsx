@@ -1,25 +1,20 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 // components
-import { Container, IconButton } from "@mui/material";
+import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Subtitle from "../components/common/Subtitle";
 import ServicesItem from "../components/common/ServicesItem";
 import CustomPricelistModal from "../components/CustomPricelistModal";
 import ComboPackage from "../components/ComboPackage";
 
-// icons
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-
 // data
 import { services } from "../data";
+import BackButton from "../components/common/BackButton";
 
 type ServicePart = typeof services.parts[0];
 
 function ServicesPage() {
-  const navigate = useNavigate();
-  // modal for price list
   const [activeItem, setActiveItem] = useState<null | ServicePart>(null);
 
   const handleClickOpen = (id: number) => {
@@ -30,10 +25,6 @@ function ServicesPage() {
     setActiveItem(null);
   };
 
-  const handleNavigateBack = () => {
-    navigate(-1);
-  };
-
   const isModalOpen = Boolean(activeItem);
 
   return (
@@ -42,9 +33,7 @@ function ServicesPage() {
         <Grid container spacing={3}>
           <Grid item container xs={12}>
             <Grid item xs={2}>
-              <IconButton onClick={handleNavigateBack}>
-                <ArrowBackIcon />
-              </IconButton>
+              <BackButton />
             </Grid>
             <Grid item xs={10}>
               <Subtitle title="Services" color="black" />
