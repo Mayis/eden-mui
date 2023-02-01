@@ -6,10 +6,11 @@ import { Box, Container, Tab, Tabs } from "@mui/material";
 import SeeMoreBtn from "./common/SeeMoreBtn";
 import Subtitle from "./common/Subtitle";
 import { Element } from "react-scroll";
+import GalleryVideos from "./GalleryVideos";
+import GalleryPhotos from "./GalleryPhotos";
+
 // data
 import { gallery } from "../data";
-import GalleryPhotos from "./GalleryPhotos";
-import GalleryVideos from "./GalleryVideos";
 
 function Gallary() {
   const [activeTab, setActiveTab] = useState("Photo Gallery");
@@ -18,6 +19,7 @@ function Gallary() {
     navigate("/gallery");
     window.scrollTo(0, 0);
   };
+
   return (
     <Element name="Gallary" id="Gallary">
       <Box sx={{ marginTop: "50px" }}>

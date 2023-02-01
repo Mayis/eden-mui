@@ -1,11 +1,15 @@
-import React from "react";
+//components
 import { Grid, Box, Typography } from "@mui/material";
+
+//data
 import { gallery } from "../data";
 
+// types
 type Photo = typeof gallery.parts;
 type Props = {
   photo: Photo;
 };
+
 function GalleryPhotos({ photo }: Props) {
   return (
     <Grid container spacing={{ xs: 3, sm: 2, md: 3 }} justifyContent="center">
