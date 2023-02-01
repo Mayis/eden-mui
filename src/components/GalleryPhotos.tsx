@@ -8,9 +8,9 @@ type Props = {
 };
 function GalleryPhotos({ photo }: Props) {
   return (
-    <Grid container spacing={{ xs: 3, md: 5 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+    <Grid container spacing={{ xs: 3, sm: 2, md: 3 }} justifyContent="center">
       {photo.map((img) => (
-        <Grid item xs={4} key={img.url}>
+        <Grid item xs={10} sm={6} md={4} key={img.url}>
           <Box>
             <img
               src={img.url}

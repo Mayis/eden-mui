@@ -6,6 +6,7 @@ import Main from "./pages/Main";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ServicesPage from "./pages/ServicesPage";
 import MemberPage from "./pages/MemberPage";
+import GallaryPage from "./pages/GallaryPage";
 
 const theme = createTheme();
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route path="/member" element={<MemberPage />}>
               <Route path="/member:memberId" element={<MemberPage />} />
             </Route>
+            <Route path="/gallery" element={<GallaryPage />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // components
 import { Box, Container, Tab, Tabs } from "@mui/material";
@@ -12,7 +13,11 @@ import GalleryVideos from "./GalleryVideos";
 
 function Gallary() {
   const [activeTab, setActiveTab] = useState("Photo Gallery");
-  console.log(activeTab);
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate("/gallery");
+    window.scrollTo(0, 0);
+  };
   return (
     <Element name="Gallary" id="Gallary">
       <Box sx={{ marginTop: "50px" }}>
@@ -28,7 +33,7 @@ function Gallary() {
             indicatorColor="secondary"
             value={activeTab}
             onChange={(e, value) => setActiveTab(value)}>
-            {gallery.tabs.map((item) => (
+            {gallery.tabs.map((item, i) => (
               <Tab
                 value={item}
                 key={item}
@@ -43,12 +48,14 @@ function Gallary() {
           </Tabs>
           <Box sx={{ flexGrow: 1, marginTop: { xs: "25px", md: "50px" } }}>
             {activeTab === "Photo Gallery" ? (
-              <GalleryPhotos photo={gallery.parts} />
+              <GalleryPhotos photo={gallery.parts.filter((item, i) => i < 3)} />
             ) : (
               <GalleryVideos />
             )}
           </Box>
-          <SeeMoreBtn />
+          <Box onClick={handleNavigate}>
+            <SeeMoreBtn />
+          </Box>
         </Container>
       </Box>
     </Element>

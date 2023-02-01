@@ -330,6 +330,26 @@ export const gallery = {
     {
       url: "https://eden.am/_next/image?url=https%3A%2F%2Fedenbysm.com%2Fa8%2F1672499806776--eden-5.webp&w=640&q=75",
       title: "Sharing LOVE"
+    },
+    {
+      url: "https://eden.am/_next/image?url=https%3A%2F%2Fedenbysm.com%2Fa8%2F1672499732917--19.webp&w=640&q=75",
+      title: "Eden Interier"
+    },
+    {
+      url: "https://eden.am/_next/image?url=https%3A%2F%2Fedenbysm.com%2Fa8%2F1672499753045--eden-10.webp&w=640&q=75",
+      title: "Gift Card"
+    },
+    {
+      url: "https://eden.am/_next/image?url=https%3A%2F%2Fedenbysm.com%2Fa8%2F1672499806776--eden-5.webp&w=640&q=75",
+      title: "Sharing LOVE"
+    },
+    {
+      url: "https://eden.am/_next/image?url=https%3A%2F%2Fedenbysm.com%2Fa8%2F1672499732917--19.webp&w=640&q=75",
+      title: "Eden Interier"
+    },
+    {
+      url: "https://eden.am/_next/image?url=https%3A%2F%2Fedenbysm.com%2Fa8%2F1672499753045--eden-10.webp&w=640&q=75",
+      title: "Gift Card"
     }
   ]
 };
