@@ -50,7 +50,8 @@ function CoursesItem({ item, handleClickOpen }: Props) {
         onClick={() => handleClickOpen(item.id)}
         size="large"
         variant="outlined"
-        sx={{ padding: "7px 70px", marginTop: "70px", color: "white" }}>
+        color="info"
+        sx={{ padding: "7px 70px", marginTop: "70px" }}>
         Learn More
       </Button>
     </Box>

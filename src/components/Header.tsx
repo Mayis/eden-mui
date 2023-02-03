@@ -60,7 +60,7 @@ function Header() {
           ) : (
             <Tabs
               sx={{ marginLeft: "auto" }}
-              indicatorColor="secondary"
+              indicatorColor="primary"
               value={activeNav}
               onChange={handleActiveNavChange}>
               {menu.navbar.map((item) => (
@@ -70,7 +70,8 @@ function Header() {
                   value={item}
                   sx={{
                     fontSize: { md: "12px", lg: "14px" },
-                    padding: { md: "8px 10px", lg: "12px 16px" }
+                    padding: { md: "8px 10px", lg: "12px 16px" },
+                    textTransform: "none"
                   }}
                 />
               ))}

@@ -8,7 +8,26 @@ import ServicesPage from "./pages/ServicesPage";
 import MemberPage from "./pages/MemberPage";
 import GallaryPage from "./pages/GallaryPage";
 
-const theme = createTheme();
+const theme = createTheme({
+  palette: {
+    mode: "light",
+    primary: {
+      main: "#344842"
+    },
+    secondary: {
+      main: "#201f1f",
+      light: "#ffffff"
+    },
+    info: {
+      main: "#ffffff",
+      light: "#201f1f"
+    }
+  },
+  typography: {
+    fontFamily: "Tinos"
+  }
+});
+
 function App() {
   return (
     <div className="App">

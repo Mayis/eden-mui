@@ -6,7 +6,8 @@ function SeeMoreBtn() {
     <Box sx={{ display: "flex", justifyContent: "center", marginTop: "50px" }}>
       <Button
         variant="outlined"
-        sx={{ padding: "8px 60px", fontSize: { xs: "16px", sm: "24px" }, color: "black" }}>
+        color="secondary"
+        sx={{ padding: "8px 60px", fontSize: { xs: "16px", sm: "24px" } }}>
         See More
       </Button>
     </Box>
