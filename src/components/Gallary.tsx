@@ -12,8 +12,12 @@ import GalleryPhotos from "./GalleryPhotos";
 // data
 import { gallery } from "../data";
 
+// custom hook
+import { useActiveLang } from "../hooks/useActiveLang";
 function Gallary() {
-  const [activeTab, setActiveTab] = useState("Photo Gallery");
+  const elementName = useActiveLang() ? "Պատկերասրահ" : "Gallary";
+  const galleryInfo = useActiveLang() ? gallery.tabs.arm : gallery.tabs.eng;
+  const [activeTab, setActiveTab] = useState(galleryInfo[0]);
   const navigate = useNavigate();
   const handleNavigate = () => {
     navigate("/gallery");
@@ -21,9 +25,9 @@ function Gallary() {
   };
 
   return (
-    <Element name="Gallary" id="Gallary">
+    <Element name={elementName}>
       <Box sx={{ marginTop: "50px" }}>
-        <Subtitle title="Gallary" color="black" />
+        <Subtitle title={elementName} color="black" />
         <Container
           sx={{
             display: "flex",
@@ -35,7 +39,7 @@ function Gallary() {
             indicatorColor="secondary"
             value={activeTab}
             onChange={(e, value) => setActiveTab(value)}>
-            {gallery.tabs.map((item, i) => (
+            {galleryInfo.map((item) => (
               <Tab
                 value={item}
                 key={item}
@@ -49,7 +53,7 @@ function Gallary() {
             ))}
           </Tabs>
           <Box sx={{ flexGrow: 1, marginTop: { xs: "25px", md: "50px" } }}>
-            {activeTab === "Photo Gallery" ? (
+            {activeTab === galleryInfo[0] ? (
               <GalleryPhotos photo={gallery.parts.filter((item, i) => i < 3)} />
             ) : (
               <GalleryVideos />

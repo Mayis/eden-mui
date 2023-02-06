@@ -1,5 +1,17 @@
 export const menu = {
-  navbar: ["Home", "About Us", "Services", "Courses", "Team", "News & Events", "Gallary", "Contact"]
+  navbar: {
+    eng: ["Home", "About Us", "Services", "Courses", "Team", "News & Events", "Gallary", "Contact"],
+    arm: [
+      "Տուն",
+      "Մեր մասին",
+      "Ծառայություններ",
+      "Դասընթացներ",
+      "Թիմ",
+      "Նորություններ",
+      "Պատկերասրահ",
+      "Կապ"
+    ]
+  }
 };
 export const home = {
   homeImg: "https://eden.am/images/1672490781041--homeBack.webp",
@@ -317,7 +329,10 @@ export const events = {
 };
 
 export const gallery = {
-  tabs: ["Photo Gallery", "Video Gallery"],
+  tabs: {
+    eng: ["Photo Gallery", "Video Gallery"],
+    arm: ["Լուսանկարներ", "Տեսադարան"]
+  },
   parts: [
     {
       url: "https://eden.am/_next/image?url=https%3A%2F%2Fedenbysm.com%2Fa8%2F1672499732917--19.webp&w=640&q=75",
@@ -358,13 +373,14 @@ export const contact = {
 };
 
 export const about = {
-  parts: [
-    "Pioneering aesthetic clinic",
-    "Modern welcoming facilities",
-    "The very best doctors and specialists",
-    "Dedicated patient care"
-  ],
-  main: `Eden medical center and spa is a leading healthcare institution in Armenia, founded by Dr
+  eng: {
+    parts: [
+      "Pioneering aesthetic clinic",
+      "Modern welcoming facilities",
+      "The very best doctors and specialists",
+      "Dedicated patient care"
+    ],
+    main: `Eden medical center and spa is a leading healthcare institution in Armenia, founded by Dr
       Siroon Minas, a highly qualified plastic surgeon. Our center offers a range of anti age
       treatments, massages, facials, stomatology services and more. We are constantly expanding
       our range of services to meet the individual aesthetic needs of our patients. All our
@@ -372,6 +388,17 @@ export const about = {
       courses for medical specialists in injectables, cosmetology and massages – the most
       comprehensive teaching program in the country. Our students are highly successful and boast
       about our high demand for their skills.`,
-  sec: `In the clinic we perform injection cosmetology, dermatological services, spa, dental
+    sec: `In the clinic we perform injection cosmetology, dermatological services, spa, dental
  services. We work every day from 10:00 to 20:00 We look forward to seeing you in our eden`
+  },
+  arm: {
+    parts: [
+      "Առաջատար էսթետիկ բժշկության կենտրոն",
+      "Ժամանակակից պայմաններ և հյուրընկալ սպասարկում",
+      "Լավագույն բժիշկներ ու նեղ մասնագետներ",
+      "Պացիենտների սրտացավ խնամք"
+    ],
+    main: "Eden բժշկական կենտրոնը և սպա-ն Հայաստանում առաջատար առողջապահական հաստատություն է, որը հիմնադրվել է պլաստիկ վիրաբույժ Սիրուն Մինասի կողմից: Մեր կենտրոնն առաջարկում է մի շարք էսթետիկ ու հակատարքային միջամտություններ, մերսումներ, կոսմետոլոգիական, ստոմատոլոգիական ծառայություններ և այլն: Մենք մշտապես ընդլայնում ենք մեր ծառայությունների շրջանակը՝ մեր պացիենտների անհատական ​​էսթետիկ ​​կարիքները բավարարելու համար: Մեր բոլոր միջամտությունները հիմնված են գիտականորեն ապացուցված մեթոդների վրա, որոնք ապահովում են գերազանց արդյունքներ: Առաջարկում ենք նաև դասընթացներ բժշկական ոլորտի մասնագետների համար` էսթետիկ ներարկումներ, կոսմետոլոգիա, և մերսումներ( ամենածավալուն ու մանրամասն ուսուցման ծրագիրը երկրում)։ Մեր ուսանողները ոլորտում հաջողակ են և հպարտ իրենց հմտությունների բարձր պահանջարկով:",
+    sec: "Կլինիկայում կատարում ենք ներարկման կոսմետոլոգիա, մաշկաբանական ծառայություններ, սպա, ատամնաբուժական ծառայություններ։ Մենք աշխատում ենք ամեն օր ժամը 10:00-ից 20:00 Սիրով սպասում ենք Ձեզ մեր Իդենում:"
+  }
 };

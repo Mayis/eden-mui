@@ -15,7 +15,12 @@ import CustomCoursesModal from "./CustomCoursesModal";
 import { courses } from "../data";
 import { useState } from "react";
 
+// custom hook
+import { useActiveLang } from "../hooks/useActiveLang";
+
 function Courses() {
+  const elementName = useActiveLang() ? "Դասընթացներ" : "Courses";
+
   const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
 
   const [activeItem, setActiveItem] = useState<null | CourseItem>(null);
@@ -31,7 +36,7 @@ function Courses() {
   const isModalOpen = Boolean(activeItem);
 
   return (
-    <Element name="Courses">
+    <Element name={elementName}>
       <Box
         sx={{
           backgroundImage: "url('https://eden.am/images/1672496638537--coursesBack.webp')",
@@ -43,7 +48,7 @@ function Courses() {
           padding: { sm: "30px 60px", md: "50px 100px" }
         }}>
         <Box>
-          <Subtitle title="Courses" />
+          <Subtitle title={elementName} />
         </Box>
         <Box sx={{ width: "100%", height: "500px", paddingTop: { xs: "40px", md: "80px" } }}>
           <Swiper

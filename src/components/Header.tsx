@@ -20,8 +20,11 @@ import LanguageIcon from "@mui/icons-material/Language";
 // data
 import { menu } from "../data";
 
+// custom hook
+import { useActiveLang } from "../hooks/useActiveLang";
 function Header() {
-  const [activeNav, setActiveNav] = useState<string>("Home");
+  const menuLang = useActiveLang() ? menu.navbar.arm : menu.navbar.eng;
+  const [activeNav, setActiveNav] = useState<string>(menuLang[0]);
   const [langOpen, setLangOpen] = useState<null | HTMLElement>(null);
   const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
 
@@ -35,13 +38,18 @@ function Header() {
       offset: -100
     });
   };
+
   // opening the language part
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setLangOpen(event.currentTarget);
   };
   // closing the language part
-  const handleClose = () => {
+  const handleClose = (lang: string | null) => {
     setLangOpen(null);
+    if (lang) {
+      window.location.reload();
+      localStorage.setItem("language", lang);
+    }
   };
 
   const open = Boolean(langOpen);
@@ -56,14 +64,14 @@ function Header() {
             style={{ width: "70px", height: "75px" }}
           />
           {isMobile ? (
-            <BurgerMenu nav={menu.navbar} />
+            <BurgerMenu nav={menuLang} />
           ) : (
             <Tabs
               sx={{ marginLeft: "auto" }}
               indicatorColor="primary"
               value={activeNav}
               onChange={handleActiveNavChange}>
-              {menu.navbar.map((item) => (
+              {menuLang.map((item) => (
                 <Tab
                   key={item}
                   label={item}
@@ -85,17 +93,18 @@ function Header() {
             aria-labelledby="demo-positioned-button"
             anchorEl={langOpen}
             open={open}
-            onClose={handleClose}
+            onClose={() => handleClose(null)}
+            disableScrollLock={true}
             anchorOrigin={{
-              vertical: "top",
+              vertical: "bottom",
               horizontal: "left"
             }}
             transformOrigin={{
               vertical: "top",
               horizontal: "left"
             }}>
-            <MenuItem onClick={handleClose}>Eng</MenuItem>
-            <MenuItem onClick={handleClose}>Arm</MenuItem>
+            <MenuItem onClick={() => handleClose("eng")}>Eng</MenuItem>
+            <MenuItem onClick={() => handleClose("arm")}>Arm</MenuItem>
           </Menu>
         </Toolbar>
       </AppBar>

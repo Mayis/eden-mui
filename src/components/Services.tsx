@@ -18,8 +18,11 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { services } from "../data";
 import { useNavigate } from "react-router-dom";
 
+// custom hook
+import { useActiveLang } from "../hooks/useActiveLang";
 function Services() {
   const navigate = useNavigate();
+  const elementName = useActiveLang() ? "Ծառայություններ" : "Services";
 
   const handleNavigate = (id: number) => {
     navigate(`/services/${id}`);
@@ -27,9 +30,9 @@ function Services() {
   };
 
   return (
-    <Element name="Services">
+    <Element name={elementName}>
       <Box sx={{ paddingTop: "20px" }}>
-        <Subtitle title="Services" color="black" />
+        <Subtitle title={elementName} color="black" />
         <Box
           sx={{
             display: "flex",

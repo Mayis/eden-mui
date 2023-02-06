@@ -9,8 +9,12 @@ import GalleryVideos from "../components/GalleryVideos";
 // data
 import { gallery } from "../data";
 
+// custom hook
+import { useActiveLang } from "../hooks/useActiveLang";
+
 function GallaryPage() {
-  const [activeTab, setActiveTab] = useState("Photo Gallery");
+  const galleryTabs = useActiveLang() ? gallery.tabs.arm : gallery.tabs.eng;
+  const [activeTab, setActiveTab] = useState(galleryTabs[0]);
 
   return (
     <Container sx={{ marginTop: "50px" }}>
@@ -20,7 +24,7 @@ function GallaryPage() {
             <BackButton />
           </Grid>
           <Grid item xs={12}>
-            <Subtitle title="Gallery" color="black" />
+            <Subtitle title={useActiveLang() ? "Պատկերասրահ" : "Gallery"} color="black" />
           </Grid>
         </Grid>
         <Grid item container xs={12} justifyContent="center">
@@ -29,7 +33,7 @@ function GallaryPage() {
               indicatorColor="secondary"
               value={activeTab}
               onChange={(e, value) => setActiveTab(value)}>
-              {gallery.tabs.map((item, i) => (
+              {galleryTabs.map((item) => (
                 <Tab
                   value={item}
                   key={item}
@@ -45,7 +49,7 @@ function GallaryPage() {
           </Grid>
         </Grid>
         <Grid item container xs={12}>
-          {activeTab === "Photo Gallery" ? (
+          {activeTab === galleryTabs[0] ? (
             <GalleryPhotos photo={gallery.parts} />
           ) : (
             <GalleryVideos />

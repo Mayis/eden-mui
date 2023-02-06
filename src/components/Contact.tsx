@@ -5,11 +5,15 @@ import { Element } from "react-scroll";
 // data
 import { contact } from "../data";
 
+// custom hook
+import { useActiveLang } from "../hooks/useActiveLang";
+
 function Contact() {
+  const elementName = useActiveLang() ? "Կապ" : "Contact";
   return (
-    <Element name="Contact">
+    <Element name={elementName}>
       <Box sx={{ marginTop: "50px" }}>
-        <Subtitle title="Contact" color="black" />
+        <Subtitle title={elementName} color="black" />
         <Box sx={{ marginTop: "30px" }}>
           {contact.adress.map((item) => (
             <Typography

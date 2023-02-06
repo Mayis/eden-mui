@@ -15,6 +15,8 @@ import { useNavigate } from "react-router-dom";
 
 function Team() {
   const navigate = useNavigate();
+  const elementName = localStorage.getItem("language") === "arm" ? "Թիմ" : "Team";
+
   const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
 
   // handle click to navigate selected member page
@@ -23,7 +25,7 @@ function Team() {
     window.scrollTo(0, 0);
   };
   return (
-    <Element name="Team">
+    <Element name={elementName}>
       <Box
         sx={{
           display: "flex",
@@ -32,7 +34,7 @@ function Team() {
           padding: { sm: "30px 60px", md: "50px 100px" }
         }}>
         <Box>
-          <Subtitle title="Team" color="black" />
+          <Subtitle title={elementName} color="black" />
         </Box>
         <Box sx={{ width: "100%", paddingTop: { xs: "40px", md: "80px" } }}>
           <Swiper

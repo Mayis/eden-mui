@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // components
 import Header from "../components/Header";
@@ -9,6 +9,7 @@ import Api from "../api";
 
 function Main() {
   const { data, loading } = Api.useApi(() => Api.services.GetServices(), []);
+
   console.log(data);
 
   return (

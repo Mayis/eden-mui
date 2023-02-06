@@ -37,7 +37,8 @@ export default class ApiSlice {
     payload: Record<string, unknown> | FormData | null = null,
     options: RequestOptions | null = null
   ): Promise<ResponseModel<T>> {
-    let headers: { Authorization?: string } = {};
+    let headers: { language?: string } = {};
+    headers.language = localStorage.getItem("language") || "eng"; // for most of requests;
 
     if (options?.headers) headers = { ...headers, ...options.headers };
 
