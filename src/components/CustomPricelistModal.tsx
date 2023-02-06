@@ -17,9 +17,7 @@ import { TransitionProps } from "@mui/material/transitions";
 
 // icons
 import CloseIcon from "@mui/icons-material/Close";
-
-// types
-import { Item } from "./common/ServicesItem";
+import Api from "../api";
 
 // transition up component
 const Transition = forwardRef(function Transition(
@@ -34,53 +32,54 @@ const Transition = forwardRef(function Transition(
 type Props = {
   open: boolean;
   handleClose: () => void;
-  item: Item;
+  id?: number;
 };
 
-function CustomPricelistModal({ open, handleClose, item }: Props) {
-  return (
-    <Dialog
-      open={open}
-      TransitionComponent={Transition}
-      keepMounted
-      onClose={handleClose}
-      aria-describedby="alert-dialog-slide-description">
-      <DialogTitle>{item.priceList?.title}</DialogTitle>
-      <DialogActions>
-        <IconButton onClick={handleClose} sx={{ position: "absolute", top: "10px", right: "10px" }}>
-          <CloseIcon />
-        </IconButton>
-      </DialogActions>
-      <DialogContent>
-        {item.priceList ? (
-          <TableContainer component={Paper} sx={{ marginTop: "20px" }}>
-            <Table sx={{ width: "100%" }} aria-label="simple table">
-              <TableHead>
-                <TableRow>
-                  <TableCell>{item.priceList?.title}</TableCell>
-                  <TableCell></TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {item.priceList.list.map((row) => (
-                  <TableRow
-                    key={row.title}
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
-                    <TableCell component="th" scope="row">
-                      {row.title}
-                    </TableCell>
-                    <TableCell align="right">{row.price}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        ) : (
-          <p>THERE IS NO PRICELIST</p>
-        )}
-      </DialogContent>
-    </Dialog>
-  );
+function CustomPricelistModal({ open, handleClose, id }: Props) {
+  const { data, loading } = Api.useApi(() => Api.services.GetServicePricelist(id!));
+  console.log(data);
+  return;
+  // (
+  // <Dialog
+  //   open={open}
+  //   TransitionComponent={Transition}
+  //   keepMounted
+  //   onClose={handleClose}
+  //   aria-describedby="alert-dialog-slide-description">
+  //   <DialogTitle>{data.item.title}</DialogTitle>
+  //   <DialogActions>
+  //     <IconButton onClick={handleClose} sx={{ position: "absolute", top: "10px", right: "10px" }}>
+  //       <CloseIcon />
+  //     </IconButton>
+  //   </DialogActions>
+  //   <DialogContent>
+
+  //       <TableContainer component={Paper} sx={{ marginTop: "20px" }}>
+  //         <Table sx={{ width: "100%" }} aria-label="simple table">
+  //           <TableHead>
+  //             <TableRow>
+  //               <TableCell>{data.item.title}</TableCell>
+  //               <TableCell></TableCell>
+  //             </TableRow>
+  //           </TableHead>
+  //           <TableBody>
+  //             {item.priceList.list.map((row) => (
+  //               <TableRow
+  //                 key={row.title}
+  //                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+  //                 <TableCell component="th" scope="row">
+  //                   {row.title}
+  //                 </TableCell>
+  //                 <TableCell align="right">{row.price}</TableCell>
+  //               </TableRow>
+  //             ))}
+  //           </TableBody>
+  //         </Table>
+  //       </TableContainer>
+
+  //   </DialogContent>
+  // </Dialog>
+  // );
 }
 
 export default CustomPricelistModal;

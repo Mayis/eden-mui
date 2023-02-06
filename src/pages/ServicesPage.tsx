@@ -11,14 +11,17 @@ import ComboPackage from "../components/ComboPackage";
 // data
 import { services } from "../data";
 import BackButton from "../components/common/BackButton";
-
-type ServicePart = typeof services.parts[0];
+import Api from "../api";
+import { ServiceItem } from "../api/slices/services";
 
 function ServicesPage() {
-  const [activeItem, setActiveItem] = useState<null | ServicePart>(null);
-
+  const { data, loading } = Api.useApi(() => Api.services.GetFullServices());
+  const [activeItem, setActiveItem] = useState<null | ServiceItem>(null);
+  console.log(data);
   const handleClickOpen = (id: number) => {
-    setActiveItem(services.parts.find((item) => item.id === id) || null);
+    if (data) {
+      setActiveItem(data.items.find((item) => item.id === id) || null);
+    }
   };
 
   const handleClose = () => {
@@ -40,18 +43,19 @@ function ServicesPage() {
             </Grid>
           </Grid>
           <Grid item xs={12} container spacing={2}>
-            {services.parts.map((item) => (
-              <Grid item xs={12} key={item.url}>
-                <ServicesItem item={item} handleClickOpen={handleClickOpen} />
-              </Grid>
-            ))}
+            {data &&
+              data.items.map((item) => (
+                <Grid item xs={12} key={item.image}>
+                  <ServicesItem item={item} handleClickOpen={handleClickOpen} />
+                </Grid>
+              ))}
             <Grid item xs={12}>
               <ComboPackage item={services.combo} />
             </Grid>
           </Grid>
         </Grid>
       </Container>
-      {isModalOpen && <CustomPricelistModal open handleClose={handleClose} item={activeItem!} />}
+      {/* {isModalOpen && <CustomPricelistModal open handleClose={handleClose} id={activeItem?.id} />} */}
     </>
   );
 }

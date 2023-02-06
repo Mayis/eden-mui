@@ -12,20 +12,11 @@ import { Element, scroller } from "react-scroll";
 
 // icons
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { ServiceItem } from "../../api/slices/services";
+import Api from "../../api";
 
-type priceList = {
-  title: string;
-  list: { title: string; price: number }[];
-};
-export type Item = {
-  id: number;
-  title: string;
-  url: string;
-  desc?: string;
-  priceList?: priceList;
-};
 type ItemProps = {
-  item: Item;
+  item: ServiceItem;
   handleClickOpen: (id: number) => void;
 };
 
@@ -65,12 +56,14 @@ function ServicesItem({ item, handleClickOpen }: ItemProps) {
         <AccordionDetails>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <Typography sx={{ fontSize: { sx: "12px", md: "14px" } }}>{item.desc}</Typography>
+              <Typography sx={{ fontSize: { sx: "12px", md: "14px" } }}>
+                {item.description}
+              </Typography>
             </Grid>
             <Grid item xs={12} container spacing={1}>
               <Grid item xs={12} md={6} sx={{ height: { xs: "250px", md: "300px" } }}>
                 <img
-                  src={item.url}
+                  src={Api.baseURL + item.image}
                   alt={item.title}
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />

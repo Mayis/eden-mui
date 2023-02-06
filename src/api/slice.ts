@@ -28,7 +28,7 @@ type UseApi<T> = {
 
 export default class ApiSlice {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion,
-  static baseURL = "https://edenbysm.com/a8";
+  static baseURL = "https://edenbysm.com/a8/";
   static defaultAuth = true;
 
   static async request<T = unknown>(

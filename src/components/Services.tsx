@@ -20,10 +20,16 @@ import { useNavigate } from "react-router-dom";
 
 // custom hook
 import { useActiveLang } from "../hooks/useActiveLang";
+
+// api
+import ApiSlice from "../api/slice";
+import Api from "../api";
+
 function Services() {
   const navigate = useNavigate();
   const elementName = useActiveLang() ? "Ծառայություններ" : "Services";
-
+  const { data, loading } = Api.useApi(() => Api.services.GetServices());
+  console.log(data);
   const handleNavigate = (id: number) => {
     navigate(`/services/${id}`);
     window.scrollTo(0, 0);
@@ -49,32 +55,34 @@ function Services() {
               width: { xs: "300px", sm: "450px", md: "650px" },
               height: { xs: "500px", sm: "600px" }
             }}>
-            <Swiper
-              direction={"vertical"}
-              slidesPerView={4}
-              loop={true}
-              loopFillGroupWithBlank={true}
-              spaceBetween={25}
-              navigation={{
-                nextEl: ".next",
-                prevEl: ".prev"
-              }}
-              modules={[Navigation]}
-              className="mySwiper">
-              {services.parts.map((item) => (
-                <SwiperSlide key={item.title} onClick={() => handleNavigate(item.id)}>
-                  <img src={item.url} />
-                  <div className="titleDiv">
-                    <Typography
-                      variant="body1"
-                      align="center"
-                      sx={{ fontSize: { xs: "24px", md: "28px" }, color: "white" }}>
-                      {item.title}
-                    </Typography>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+            {data && (
+              <Swiper
+                direction={"vertical"}
+                slidesPerView={4}
+                loop={true}
+                loopFillGroupWithBlank={true}
+                spaceBetween={25}
+                navigation={{
+                  nextEl: ".next",
+                  prevEl: ".prev"
+                }}
+                modules={[Navigation]}
+                className="mySwiper">
+                {data.items.map((item) => (
+                  <SwiperSlide key={item.title} onClick={() => handleNavigate(item.id)}>
+                    <img src={ApiSlice.baseURL + item.image} alt={item.title} />
+                    <div className="titleDiv">
+                      <Typography
+                        variant="body1"
+                        align="center"
+                        sx={{ fontSize: { xs: "24px", md: "28px" }, color: "white" }}>
+                        {item.title}
+                      </Typography>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            )}
           </Box>
           <IconButton className="next" sx={{ padding: "15px" }}>
             <KeyboardArrowDownIcon />
